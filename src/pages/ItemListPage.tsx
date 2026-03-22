@@ -222,7 +222,7 @@ export default function ItemListPage() {
 
       {/* Learn More Sheet */}
       <Sheet open={learnMoreOpen} onOpenChange={setLearnMoreOpen}>
-        <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto">
+        <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto p-6">
           <SheetHeader>
             <SheetTitle className="text-base">About This Database</SheetTitle>
           </SheetHeader>
