@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown } from 'lucide-react'
+import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -109,7 +109,10 @@ export default function ItemListPage() {
   const setFilter      = (v: FilterType)        => {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev)
-      if (v === 'all') { next.delete('f') } else { next.set('f', v) }
+      // Toggle off if clicking the already-active filter (back to 'all')
+      const active = (prev.get('f') ?? 'all') as FilterType
+      const newVal = (active === v && v !== 'all') ? 'all' : v
+      if (newVal === 'all') { next.delete('f') } else { next.set('f', newVal) }
       // Clear sub-filters when main filter changes
       next.delete('sort'); next.delete('skill'); next.delete('slot')
       return next
@@ -118,6 +121,9 @@ export default function ItemListPage() {
   const setSortRatio   = (on: boolean)          => setParam('sort', on ? 'ratio' : null)
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
+
+  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sortRatio || !!query
+  const clearFilters = () => setSearchParams({}, { replace: true })
 
   const [items, setItems]     = useState<ItemSummary[]>([])
   const [stats, setStats]     = useState<{ total: number; withStats: number } | null>(null)
@@ -195,7 +201,7 @@ export default function ItemListPage() {
             autoFocus
           />
         </div>
-        <div className="flex gap-1.5 flex-wrap">
+        <div className="flex gap-1.5 flex-wrap items-center">
           {FILTERS.map(f => (
             <button
               key={f.value}
@@ -212,7 +218,7 @@ export default function ItemListPage() {
           {filter === 'weapon' && (
             <button
               onClick={() => setSortRatio(!sortRatio)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ml-auto
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
                 ${sortRatio
                   ? 'bg-primary text-primary-foreground'
                   : 'bg-muted text-muted-foreground hover:bg-muted/80'
@@ -220,6 +226,15 @@ export default function ItemListPage() {
             >
               <ArrowUpDown className="w-3.5 h-3.5" />
               Sort by Ratio
+            </button>
+          )}
+          {hasActiveFilters && (
+            <button
+              onClick={clearFilters}
+              title="Clear all filters"
+              className="ml-auto flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
