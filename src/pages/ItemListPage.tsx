@@ -203,7 +203,10 @@ export default function ItemListPage() {
       {/* Header */}
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-xl font-semibold tracking-tight">Monsters &amp; Memories</h1>
+          <h1
+          className="text-xl font-semibold tracking-tight bg-clip-text text-transparent"
+          style={{ backgroundImage: 'linear-gradient(to bottom, #D13301, #f39d00)' }}
+        >Monsters &amp; Memories</h1>
           <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-2">
             <span>
               Item Database
