@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2, SlidersHorizontal, ChevronDown } from 'lucide-react'
+import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2, SlidersHorizontal, ChevronDown, Plus, X } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -17,6 +17,37 @@ const FILTERS: { label: string; value: FilterType; icon: React.ReactNode }[] = [
   { label: 'Weapons', value: 'weapon', icon: <Sword className="w-3.5 h-3.5" /> },
   { label: 'Armor', value: 'armor', icon: <Shield className="w-3.5 h-3.5" /> },
 ]
+
+const STAT_OPTIONS: { key: keyof ItemSummary; label: string }[] = [
+  { key: 'strength',     label: 'STR' },
+  { key: 'stamina',      label: 'STA' },
+  { key: 'dexterity',    label: 'DEX' },
+  { key: 'agility',      label: 'AGI' },
+  { key: 'intelligence', label: 'INT' },
+  { key: 'wisdom',       label: 'WIS' },
+  { key: 'charisma',     label: 'CHA' },
+  { key: 'health',       label: 'HP' },
+  { key: 'mana',         label: 'Mana' },
+  { key: 'ac',           label: 'AC' },
+  { key: 'damage',       label: 'Damage' },
+  { key: 'delay',        label: 'Delay' },
+  { key: 'required_level', label: 'Req Level' },
+  { key: 'weight',       label: 'Weight' },
+]
+
+interface StatFilter { stat: string; min: string; max: string }
+
+// Serialize/deserialize stat filters to/from URL: "str:5:,int::10"
+function serializeStatFilters(sf: StatFilter[]): string {
+  return sf.map(f => `${f.stat}:${f.min}:${f.max}`).join(',')
+}
+function parseStatFilters(raw: string | null): StatFilter[] {
+  if (!raw) return []
+  return raw.split(',').map(s => {
+    const [stat, min = '', max = ''] = s.split(':')
+    return { stat, min, max }
+  }).filter(f => f.stat)
+}
 
 function useDebounce<T>(value: T, ms: number): T {
   const [dv, setDv] = useState(value)
@@ -103,7 +134,7 @@ function ItemRow({ item }: { item: ItemSummary }) {
 export default function ItemListPage() {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  // URL params: ?q=&f=all&sort=ratio|ac&skill=sla&slot=Chest
+  // URL params: ?q=&f=all&sort=ratio|ac&skill=sla&slot=Chest&sf=str:5:,int::10
   const query       = searchParams.get('q') ?? ''
   const filter      = (searchParams.get('f') ?? 'all') as FilterType
   const sort        = searchParams.get('sort')
@@ -111,6 +142,7 @@ export default function ItemListPage() {
   const sortAc      = sort === 'ac'
   const skillFilter = searchParams.get('skill')
   const slotFilter  = searchParams.get('slot')
+  const statFilters = useMemo(() => parseStatFilters(searchParams.get('sf')), [searchParams])
 
   // Helper: patch one param without clobbering others
   const setParam = useCallback((key: string, value: string | null) => {
@@ -139,8 +171,9 @@ export default function ItemListPage() {
   const setSortAc      = (on: boolean)          => setParam('sort', on ? 'ac' : null)
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
+  const setStatFilters = (sf: StatFilter[])     => setParam('sf', sf.length ? serializeStatFilters(sf) : null)
 
-  const activeFilterCount = (filter !== 'all' ? 1 : 0) + (skillFilter ? 1 : 0) + (slotFilter ? 1 : 0) + (sort ? 1 : 0)
+  const activeFilterCount = (filter !== 'all' ? 1 : 0) + (skillFilter ? 1 : 0) + (slotFilter ? 1 : 0) + (sort ? 1 : 0) + (statFilters.length > 0 ? statFilters.length : 0)
   const hasActiveFilters  = activeFilterCount > 0 || !!query
   const clearFilters      = () => setSearchParams({}, { replace: true })
 
@@ -187,6 +220,16 @@ export default function ItemListPage() {
     let list = items
     if (skillFilter) list = list.filter(i => i.skill_weapon_hid === skillFilter)
     if (slotFilter)  list = list.filter(i => i.slots.includes(slotFilter))
+    for (const sf of statFilters) {
+      const min = sf.min !== '' ? Number(sf.min) : null
+      const max = sf.max !== '' ? Number(sf.max) : null
+      list = list.filter(i => {
+        const v = Number((i as Record<string, unknown>)[sf.stat] ?? 0)
+        if (min !== null && v < min) return false
+        if (max !== null && v > max) return false
+        return true
+      })
+    }
     if (sortRatio) {
       list = [...list].sort((a, b) => {
         const ra = (a.damage && a.delay) ? a.damage / a.delay : 0
@@ -408,6 +451,60 @@ export default function ItemListPage() {
                 ))}
               </div>
             )}
+
+            {/* Stat filters */}
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs text-muted-foreground w-8 shrink-0">Stats</span>
+                <button
+                  onClick={() => setStatFilters([...statFilters, { stat: STAT_OPTIONS[0].key, min: '', max: '' }])}
+                  className="flex items-center gap-1 px-2 py-1 rounded text-xs text-muted-foreground border border-dashed border-border hover:border-primary hover:text-primary transition-colors"
+                >
+                  <Plus className="w-3 h-3" /> Add
+                </button>
+              </div>
+              {statFilters.map((sf, idx) => (
+                <div key={idx} className="flex items-center gap-1.5 ml-10">
+                  <select
+                    value={sf.stat}
+                    onChange={e => {
+                      const next = statFilters.map((f, i) => i === idx ? { ...f, stat: e.target.value } : f)
+                      setStatFilters(next)
+                    }}
+                    className="h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
+                  >
+                    {STAT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
+                  </select>
+                  <input
+                    type="number"
+                    placeholder="min"
+                    value={sf.min}
+                    onChange={e => {
+                      const next = statFilters.map((f, i) => i === idx ? { ...f, min: e.target.value } : f)
+                      setStatFilters(next)
+                    }}
+                    className="w-16 h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                  <span className="text-xs text-muted-foreground">–</span>
+                  <input
+                    type="number"
+                    placeholder="max"
+                    value={sf.max}
+                    onChange={e => {
+                      const next = statFilters.map((f, i) => i === idx ? { ...f, max: e.target.value } : f)
+                      setStatFilters(next)
+                    }}
+                    className="w-16 h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary"
+                  />
+                  <button
+                    onClick={() => setStatFilters(statFilters.filter((_, i) => i !== idx))}
+                    className="p-0.5 rounded text-muted-foreground hover:text-destructive transition-colors"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ))}
+            </div>
 
             {/* Clear all */}
             {hasActiveFilters && (
