@@ -205,7 +205,7 @@ export default function ItemListPage() {
         <div>
           <h1
           className="text-xl font-semibold tracking-tight bg-clip-text text-transparent"
-          style={{ backgroundImage: 'linear-gradient(to bottom, #D13301, #f39d00)' }}
+          style={{ backgroundImage: 'linear-gradient(to bottom, #D13301, #f39d00)', fontFamily: "'Cinzel', serif" }}
         >Monsters &amp; Memories</h1>
           <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-2">
             <span>
