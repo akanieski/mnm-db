@@ -104,6 +104,7 @@ export default function ItemListPage() {
   const query       = searchParams.get('q') ?? ''
   const filter      = (searchParams.get('f') ?? 'all') as FilterType
   const sortRatio   = searchParams.get('sort') === 'ratio'
+  const sortAC      = searchParams.get('sort') === 'ac'
   const skillFilter = searchParams.get('skill')
   const slotFilter  = searchParams.get('slot')
 
@@ -131,10 +132,11 @@ export default function ItemListPage() {
     }, { replace: true })
   }
   const setSortRatio   = (on: boolean)          => setParam('sort', on ? 'ratio' : null)
+  const setSortAC      = (on: boolean)          => setParam('sort', on ? 'ac' : null)
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
 
-  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sortRatio || !!query
+  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sortRatio || !!sortAC || !!query
   const clearFilters = () => setSearchParams({}, { replace: true })
 
   const [items, setItems]     = useState<ItemSummary[]>([])
@@ -183,8 +185,11 @@ export default function ItemListPage() {
         return rb - ra
       })
     }
+    if (sortAC) {
+      list = [...list].sort((a, b) => (b.ac ?? 0) - (a.ac ?? 0))
+    }
     return list
-  }, [items, skillFilter, slotFilter, sortRatio])
+  }, [items, skillFilter, slotFilter, sortRatio, sortAC])
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -238,6 +243,19 @@ export default function ItemListPage() {
             >
               <ArrowUpDown className="w-3.5 h-3.5" />
               Sort by Ratio
+            </button>
+          )}
+          {filter === 'armor' && (
+            <button
+              onClick={() => setSortAC(!sortAC)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
+                ${sortAC
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                }`}
+            >
+              <ArrowUpDown className="w-3.5 h-3.5" />
+              Sort by AC
             </button>
           )}
           {hasActiveFilters && (
@@ -294,7 +312,7 @@ export default function ItemListPage() {
 
       {/* Count */}
       <p className="text-xs text-muted-foreground mb-2 px-1">
-        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : ''}`}
+        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : ''}${sortAC ? ' · sorted by AC' : ''}`}
       </p>
 
       {/* List */}
