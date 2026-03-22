@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { fetchItems, fetchStats } from '@/api'
 import type { ItemSummary, FilterType } from '@/types'
 import { ItemIcon } from '@/components/ItemIcon'
@@ -200,24 +201,27 @@ export default function ItemListPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-xl font-semibold tracking-tight">Monsters &amp; Memories</h1>
-        <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-2">
-          <span>
-            Item Database
-            {stats && (
-              <span className="ml-2 text-muted-foreground/60">
-                · {stats.withStats} items
-              </span>
-            )}
-          </span>
-          <button
-            onClick={() => setLearnMoreOpen(true)}
-            className="text-xs text-muted-foreground/50 hover:text-muted-foreground underline underline-offset-2 transition-colors"
-          >
-            Learn More
-          </button>
-        </p>
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-semibold tracking-tight">Monsters &amp; Memories</h1>
+          <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-2">
+            <span>
+              Item Database
+              {stats && (
+                <span className="ml-2 text-muted-foreground/60">
+                  · {stats.withStats} items
+                </span>
+              )}
+            </span>
+            <button
+              onClick={() => setLearnMoreOpen(true)}
+              className="text-xs text-muted-foreground/50 hover:text-muted-foreground underline underline-offset-2 transition-colors"
+            >
+              Learn More
+            </button>
+          </p>
+        </div>
+        <ThemeToggle />
       </div>
 
       {/* Learn More Sheet */}
