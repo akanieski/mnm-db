@@ -30,16 +30,6 @@ function fmtSize(hid: string | null): string {
 }
 
 // ─── Row helpers ──────────────────────────────────────────────────────────────
-function StatLine({ label, value }: { label: string; value: number | null }) {
-  if (!value) return null
-  return (
-    <div className="flex gap-4 text-sm">
-      <span className="text-muted-foreground">{label}:</span>
-      <span className="font-mono font-medium">{value > 0 ? `+${value}` : value}</span>
-    </div>
-  )
-}
-
 function InlineStats({ pairs }: { pairs: [string, number | null][] }) {
   const active = pairs.filter(([, v]) => v)
   if (!active.length) return null
