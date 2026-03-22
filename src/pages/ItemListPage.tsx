@@ -4,6 +4,7 @@ import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2, SlidersH
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { fetchItems, fetchStats } from '@/api'
 import type { ItemSummary, FilterType } from '@/types'
 import { ItemIcon } from '@/components/ItemIcon'
@@ -143,6 +144,7 @@ export default function ItemListPage() {
 
   // Auto-open panel when filters are present (e.g. navigating back with URL params)
   const [filtersOpen, setFiltersOpen] = useState(() => activeFilterCount > 0)
+  const [learnMoreOpen, setLearnMoreOpen] = useState(false)
 
   const [items, setItems]     = useState<ItemSummary[]>([])
   const [stats, setStats]     = useState<{ total: number; withStats: number } | null>(null)
@@ -200,15 +202,63 @@ export default function ItemListPage() {
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-xl font-semibold tracking-tight">Monsters &amp; Memories</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Item Database
-          {stats && (
-            <span className="ml-2 text-muted-foreground/60">
-              · {stats.withStats} items
-            </span>
-          )}
+        <p className="text-sm text-muted-foreground mt-0.5 flex items-center gap-2">
+          <span>
+            Item Database
+            {stats && (
+              <span className="ml-2 text-muted-foreground/60">
+                · {stats.withStats} items
+              </span>
+            )}
+          </span>
+          <button
+            onClick={() => setLearnMoreOpen(true)}
+            className="text-xs text-muted-foreground/50 hover:text-muted-foreground underline underline-offset-2 transition-colors"
+          >
+            Learn More
+          </button>
         </p>
       </div>
+
+      {/* Learn More Sheet */}
+      <Sheet open={learnMoreOpen} onOpenChange={setLearnMoreOpen}>
+        <SheetContent side="right" className="w-full sm:max-w-lg overflow-y-auto">
+          <SheetHeader>
+            <SheetTitle className="text-base">About This Database</SheetTitle>
+          </SheetHeader>
+          <div className="mt-4 space-y-4 text-sm text-muted-foreground leading-relaxed">
+            <p>
+              This is a community-built item database for{' '}
+              <span className="text-foreground font-medium">Monsters &amp; Memories</span>, an
+              upcoming MMORPG developed by{' '}
+              <span className="text-foreground font-medium">Dragonhead Studios</span>. We have
+              enormous respect for the team and everything they are building — this project exists
+              purely out of love for the game.
+            </p>
+            <p>
+              Item data shown here is collected passively while playing the game. When the game
+              client receives item information from the server, we intercept and record it locally.
+              Over time, as more items are encountered in-game, the database grows.
+            </p>
+            <p className="border-l-2 border-yellow-500/50 pl-3 text-yellow-600 dark:text-yellow-400">
+              <strong>Accuracy disclaimer:</strong> The data presented here may not be 100%
+              accurate. We have made reasonable assumptions about the structure and meaning of the
+              data sent from Monsters &amp; Memories servers, and some values may be misinterpreted
+              or incomplete. Always treat this as a best-effort community resource, not an official
+              reference.
+            </p>
+            <p>
+              Item stats, names, icons, and other details are the intellectual property of
+              Dragonhead Studios. This site is a fan project and is not affiliated with or endorsed
+              by the Monsters &amp; Memories team.
+            </p>
+            <p>
+              The source code for this project is{' '}
+              <span className="text-foreground font-medium">not open source at this time</span>.
+            </p>
+          </div>
+        </SheetContent>
+      </Sheet>
 
       {/* Search + Filters */}
       <div className="flex flex-col gap-2 mb-4">
