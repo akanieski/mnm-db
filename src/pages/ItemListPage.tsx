@@ -109,7 +109,7 @@ export default function ItemListPage() {
   const setFilter      = (v: FilterType)        => {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev)
-      if (v === 'all') next.delete('f') else next.set('f', v)
+      if (v === 'all') { next.delete('f') } else { next.set('f', v) }
       // Clear sub-filters when main filter changes
       next.delete('sort'); next.delete('skill'); next.delete('slot')
       return next
