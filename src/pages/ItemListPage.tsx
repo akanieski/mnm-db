@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
@@ -86,14 +86,42 @@ function ItemRow({ item }: { item: ItemSummary }) {
 }
 
 export default function ItemListPage() {
-  const [query, setQuery]       = useState('')
-  const [filter, setFilter]     = useState<FilterType>('all')
-  const [items, setItems]       = useState<ItemSummary[]>([])
-  const [stats, setStats]       = useState<{ total: number; withStats: number } | null>(null)
-  const [loading, setLoading]   = useState(true)
-  const [sortRatio, setSortRatio] = useState(false)
-  const [skillFilter, setSkillFilter] = useState<string | null>(null)
-  const [slotFilter, setSlotFilter]   = useState<string | null>(null)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  // URL params: ?q=&f=all&sort=ratio&skill=sla&slot=Chest
+  const query       = searchParams.get('q') ?? ''
+  const filter      = (searchParams.get('f') ?? 'all') as FilterType
+  const sortRatio   = searchParams.get('sort') === 'ratio'
+  const skillFilter = searchParams.get('skill')
+  const slotFilter  = searchParams.get('slot')
+
+  // Helper: patch one param without clobbering others
+  const setParam = useCallback((key: string, value: string | null) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      if (value) next.set(key, value)
+      else next.delete(key)
+      return next
+    }, { replace: true })
+  }, [setSearchParams])
+
+  const setQuery       = (v: string)           => setParam('q', v || null)
+  const setFilter      = (v: FilterType)        => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev)
+      if (v === 'all') next.delete('f') else next.set('f', v)
+      // Clear sub-filters when main filter changes
+      next.delete('sort'); next.delete('skill'); next.delete('slot')
+      return next
+    }, { replace: true })
+  }
+  const setSortRatio   = (on: boolean)          => setParam('sort', on ? 'ratio' : null)
+  const setSkillFilter = (v: string | null)     => setParam('skill', v)
+  const setSlotFilter  = (v: string | null)     => setParam('slot', v)
+
+  const [items, setItems]     = useState<ItemSummary[]>([])
+  const [stats, setStats]     = useState<{ total: number; withStats: number } | null>(null)
+  const [loading, setLoading] = useState(true)
 
   const dq = useDebounce(query, 200)
 
@@ -109,12 +137,6 @@ export default function ItemListPage() {
 
   useEffect(() => { load() }, [load])
   useEffect(() => { fetchStats().then(setStats) }, [])
-
-  // Reset sub-filters when changing main filter
-  useEffect(() => {
-    if (filter !== 'weapon') { setSortRatio(false); setSkillFilter(null) }
-    if (filter !== 'armor')  { setSlotFilter(null) }
-  }, [filter])
 
   // Derive available skills / slots from fetched items
   const availableSkills = useMemo(() => {
@@ -189,7 +211,7 @@ export default function ItemListPage() {
           ))}
           {filter === 'weapon' && (
             <button
-              onClick={() => setSortRatio(s => !s)}
+              onClick={() => setSortRatio(!sortRatio)}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ml-auto
                 ${sortRatio
                   ? 'bg-primary text-primary-foreground'
@@ -209,7 +231,7 @@ export default function ItemListPage() {
             {availableSkills.map(skill => (
               <button
                 key={skill}
-                onClick={() => setSkillFilter(s => s === skill ? null : skill)}
+                onClick={() => setSkillFilter(skillFilter === skill ? null : skill)}
                 className={`px-2.5 py-1 rounded text-xs font-mono font-medium transition-colors
                   ${skillFilter === skill
                     ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
@@ -229,7 +251,7 @@ export default function ItemListPage() {
             {availableSlots.map(slot => (
               <button
                 key={slot}
-                onClick={() => setSlotFilter(s => s === slot ? null : slot)}
+                onClick={() => setSlotFilter(slotFilter === slot ? null : slot)}
                 className={`px-2.5 py-1 rounded text-xs font-medium transition-colors
                   ${slotFilter === slot
                     ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
