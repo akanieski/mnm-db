@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Redundant copy (canonical version is src/icon_map.json)
+public/icon_map.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
