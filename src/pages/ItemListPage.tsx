@@ -458,18 +458,18 @@ export default function ItemListPage() {
               <div className="flex items-center gap-1.5">
                 <span className="text-xs text-muted-foreground w-8 shrink-0">Stats</span>
                 <button
-                  onClick={() => setStatFilters([...statFilters, { stat: STAT_OPTIONS[0].key, min: '', max: '' }])}
+                  onClick={() => setStatFilters([...localStatFilters, { stat: STAT_OPTIONS[0].key, min: '', max: '' }])}
                   className="flex items-center gap-1 px-2 py-1 rounded text-xs text-muted-foreground border border-dashed border-border hover:border-primary hover:text-primary transition-colors"
                 >
                   <Plus className="w-3 h-3" /> Add
                 </button>
               </div>
-              {statFilters.map((sf, idx) => (
+              {localStatFilters.map((sf, idx) => (
                 <div key={idx} className="flex items-center gap-1.5 ml-10">
                   <select
                     value={sf.stat}
                     onChange={e => {
-                      const next = statFilters.map((f, i) => i === idx ? { ...f, stat: e.target.value } : f)
+                      const next = localStatFilters.map((f, i) => i === idx ? { ...f, stat: e.target.value } : f)
                       setStatFilters(next)
                     }}
                     className="h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-primary"
@@ -481,7 +481,7 @@ export default function ItemListPage() {
                     placeholder="min"
                     value={sf.min}
                     onChange={e => {
-                      const next = statFilters.map((f, i) => i === idx ? { ...f, min: e.target.value } : f)
+                      const next = localStatFilters.map((f, i) => i === idx ? { ...f, min: e.target.value } : f)
                       setStatFilters(next)
                     }}
                     className="w-16 h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary"
@@ -492,13 +492,13 @@ export default function ItemListPage() {
                     placeholder="max"
                     value={sf.max}
                     onChange={e => {
-                      const next = statFilters.map((f, i) => i === idx ? { ...f, max: e.target.value } : f)
+                      const next = localStatFilters.map((f, i) => i === idx ? { ...f, max: e.target.value } : f)
                       setStatFilters(next)
                     }}
                     className="w-16 h-7 rounded border border-border bg-background px-1.5 text-xs text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                   <button
-                    onClick={() => setStatFilters(statFilters.filter((_, i) => i !== idx))}
+                    onClick={() => setStatFilters(localStatFilters.filter((_, i) => i !== idx))}
                     className="p-0.5 rounded text-muted-foreground hover:text-destructive transition-colors"
                   >
                     <X className="w-3.5 h-3.5" />
