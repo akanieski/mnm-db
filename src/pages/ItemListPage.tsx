@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { Search, Sword, Shield, Package, Sparkles } from 'lucide-react'
+import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -91,6 +91,7 @@ export default function ItemListPage() {
   const [items, setItems]   = useState<ItemSummary[]>([])
   const [stats, setStats]   = useState<{ total: number; withStats: number } | null>(null)
   const [loading, setLoading] = useState(true)
+  const [sortRatio, setSortRatio] = useState(false)
 
   const dq = useDebounce(query, 200)
 
@@ -106,6 +107,17 @@ export default function ItemListPage() {
 
   useEffect(() => { load() }, [load])
   useEffect(() => { fetchStats().then(setStats) }, [])
+
+  // Reset ratio sort when leaving weapon filter
+  useEffect(() => { if (filter !== 'weapon') setSortRatio(false) }, [filter])
+
+  const displayItems = sortRatio
+    ? [...items].sort((a, b) => {
+        const ra = (a.damage && a.delay) ? a.damage / a.delay : 0
+        const rb = (b.damage && b.delay) ? b.damage / b.delay : 0
+        return rb - ra
+      })
+    : items
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -134,7 +146,7 @@ export default function ItemListPage() {
             autoFocus
           />
         </div>
-        <div className="flex gap-1.5">
+        <div className="flex gap-1.5 flex-wrap">
           {FILTERS.map(f => (
             <button
               key={f.value}
@@ -148,12 +160,25 @@ export default function ItemListPage() {
               {f.icon}{f.label}
             </button>
           ))}
+          {filter === 'weapon' && (
+            <button
+              onClick={() => setSortRatio(s => !s)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ml-auto
+                ${sortRatio
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                }`}
+            >
+              <ArrowUpDown className="w-3.5 h-3.5" />
+              Sort by Ratio
+            </button>
+          )}
         </div>
       </div>
 
       {/* Count */}
       <p className="text-xs text-muted-foreground mb-2 px-1">
-        {loading ? 'Loading…' : `${items.length} items`}
+        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : ''}`}
       </p>
 
       {/* List */}
@@ -171,7 +196,7 @@ export default function ItemListPage() {
               No items found
             </div>
           )
-          : items.map(item => <ItemRow key={item.hid} item={item} />)
+          : displayItems.map(item => <ItemRow key={item.hid} item={item} />)
         }
       </div>
     </div>
