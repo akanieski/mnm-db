@@ -255,7 +255,7 @@ export default function ItemDetailPage() {
               {item.slots.length > 0 && (
                 <InfoLine label="Slot" value={item.slots.map(s => s.toUpperCase()).join(' ')} />
               )}
-              {(item.damage || item.delay) && (
+              {!!(item.damage || item.delay) && (
                 <div>
                   {item.damage != null && <><span style={{ color: C.label }}>Weapon DMG: </span><span style={{ color: C.text }}>{item.damage}</span><span style={{ color: C.dim }}>  </span></>}
                   {item.delay  != null && <><span style={{ color: C.label }}>ATK Delay: </span><span style={{ color: C.text }}>{item.delay}</span><span style={{ color: C.dim }}>  </span></>}
@@ -267,7 +267,7 @@ export default function ItemDetailPage() {
               {item.skill_weapon_hid && ((item.slot_mask ?? 0) & 0b111) !== 0 && !((item.slot_mask ?? 0) & 2 && item.ac) && (
                 <InfoLine label="Skill" value={fmtSkill(item.skill_weapon_hid)} />
               )}
-              {(item.ac || item.weight || item.size_hid) && (
+              {!!(item.ac || item.weight || item.size_hid) && (
                 <div>
                   {item.ac     != null && <><span style={{ color: C.label }}>AC: </span><span style={{ color: C.text }}>{item.ac}</span><span style={{ color: C.dim }}>  </span></>}
                   {item.weight != null && <><span style={{ color: C.label }}>WT: </span><span style={{ color: C.text }}>{item.weight.toFixed(1)}</span><span style={{ color: C.dim }}>  </span></>}
