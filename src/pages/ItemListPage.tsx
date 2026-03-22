@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { Helmet } from 'react-helmet-async'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { fetchItems, fetchStats } from '@/api'
 import type { ItemSummary, FilterType } from '@/types'
@@ -200,6 +201,14 @@ export default function ItemListPage() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
+      <Helmet>
+        <title>Monsters &amp; Memories Item Database</title>
+        <meta name="description" content="Community-built item database for Monsters &amp; Memories. Browse weapons, armor, and gear with stats captured live from the game client." />
+        <meta property="og:title" content="Monsters &amp; Memories Item Database" />
+        <meta property="og:description" content="Community-built item database for Monsters &amp; Memories. Browse weapons, armor, and gear with stats captured live from the game client." />
+        <meta name="twitter:title" content="Monsters &amp; Memories Item Database" />
+        <meta name="twitter:description" content="Community-built item database for Monsters &amp; Memories. Browse weapons, armor, and gear with stats captured live from the game client." />
+      </Helmet>
       {/* Sticky top panel */}
       <div className="max-w-3xl w-full mx-auto px-4 pt-8 pb-3 flex-shrink-0">
       {/* Header */}

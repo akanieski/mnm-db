@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import { Skeleton } from '@/components/ui/skeleton'
 import { fetchItem } from '@/api'
 import type { ItemDetail } from '@/types'
@@ -72,6 +73,47 @@ function Divider() {
   return <div className="border-t border-border/40 my-3" />
 }
 
+// ─── EQ-style plain-text description for meta tags ────────────────────────────
+function buildItemDescription(item: ItemDetail): string {
+  const parts: string[] = []
+  const flags = [
+    item.no_drop ? 'NO DROP' : null,
+    item.no_rent ? 'NO RENT' : null,
+    item.magic   ? 'MAGIC'   : null,
+    item.two_handed ? 'TWO-HANDED' : null,
+  ].filter(Boolean) as string[]
+  if (flags.length) parts.push(flags.join(', '))
+  if (item.slots.length) parts.push(`Slot: ${item.slots.map(s => s.toUpperCase()).join(' ')}`)
+  if (item.damage || item.delay) {
+    const ratio = item.damage && item.delay ? ` (${(item.damage / item.delay).toFixed(2)}/s)` : ''
+    parts.push(`Weapon DMG: ${item.damage ?? 0}  ATK Delay: ${item.delay ?? 0}${ratio}`)
+    if (item.skill_weapon_hid) parts.push(`Skill: ${fmtSkill(item.skill_weapon_hid)}`)
+  }
+  if (item.ac) parts.push(`AC: ${item.ac}`)
+  if (item.weight) parts.push(`Weight: ${item.weight.toFixed(1)}`)
+  if (item.required_level) parts.push(`Required Level: ${item.required_level}`)
+
+  const statPairs: [string, number | null][] = [
+    ['STR', item.strength], ['STA', item.stamina], ['DEX', item.dexterity],
+    ['AGI', item.agility], ['INT', item.intelligence], ['WIS', item.wisdom],
+    ['CHA', item.charisma], ['HP', item.health], ['MP', item.mana],
+    ['HP Regen', item.health_regen], ['MP Regen', item.mana_regen],
+    ['Melee Haste', item.melee_haste], ['Ranged Haste', item.ranged_haste], ['Spell Haste', item.spell_haste],
+    ['SvIce', item.resist_ice], ['SvFire', item.resist_fire], ['SvElec', item.resist_electric],
+    ['SvMagic', item.resist_magic], ['SvCorrupt', item.resist_corrupt],
+    ['SvPoison', item.resist_poison], ['SvDisease', item.resist_disease], ['SvHoly', item.resist_holy],
+    ['Might', item.might], ['Grace', item.grace], ['Swiftness', item.swiftness],
+    ['Constitution', item.constitution], ['Discipline', item.discipline],
+  ]
+  const activeStats = statPairs
+    .filter(([, v]) => v)
+    .map(([label, v]) => `${label}: ${(v ?? 0) > 0 ? '+' : ''}${v}`)
+  if (activeStats.length) parts.push(activeStats.join('  '))
+
+  parts.push(`Class: ${decodeClasses(item.class_mask)}  Race: ${decodeRaces(item.race_mask)}`)
+  return parts.join(' | ')
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ItemDetailPage() {
   const { hid } = useParams<{ hid: string }>()
@@ -125,8 +167,22 @@ export default function ItemDetailPage() {
   const hasBard    = item.brass_mod || item.percussion_mod || item.singing_mod ||
     item.string_mod || item.wind_mod
 
+  const description = item.has_stats
+    ? buildItemDescription(item)
+    : `${item.name} — stats not yet captured. Visit vendors or pick up this item in-game.`
+  const pageTitle = `${item.name} — Monsters & Memories Item Database`
+
   return (
     <div className="max-w-xl mx-auto px-4 py-8">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={description} />
+      </Helmet>
       <Link to="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-6 w-fit">
         <ArrowLeft className="w-4 h-4" /> All items
       </Link>
