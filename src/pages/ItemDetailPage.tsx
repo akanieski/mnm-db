@@ -94,7 +94,7 @@ function buildItemDescription(item: ItemDetail): string {
   if (flags.length) parts.push(flags.join(', '))
   if (item.slots.length) parts.push(`Slot: ${item.slots.map(s => s.toUpperCase()).join(' ')}`)
   if (item.damage || item.delay) {
-    const ratio = item.damage && item.delay ? ` (${(item.damage / item.delay).toFixed(2)}/s)` : ''
+    const ratio = item.damage && item.delay ? ` (${(item.damage / item.delay).toFixed(2)})` : ''
     parts.push(`Weapon DMG: ${item.damage ?? 0}  ATK Delay: ${item.delay ?? 0}${ratio}`)
     if (item.skill_weapon_hid) parts.push(`Skill: ${fmtSkill(item.skill_weapon_hid)}`)
   }
@@ -242,7 +242,7 @@ export default function ItemDetailPage() {
         ) : (
           <>
             {/* ── Lore / description ── */}
-            {item.description && (
+            {!!item.description && typeof item.description === 'string' && item.description.trim() && (
               <>
                 <div style={{ padding: '0.5rem 1rem', fontStyle: 'italic', color: '#b8aa78', lineHeight: 1.5 }}>
                   {item.description}
@@ -260,7 +260,7 @@ export default function ItemDetailPage() {
                   {item.damage != null && <><span style={{ color: C.label }}>Weapon DMG: </span><span style={{ color: C.text }}>{item.damage}</span><span style={{ color: C.dim }}>  </span></>}
                   {item.delay  != null && <><span style={{ color: C.label }}>ATK Delay: </span><span style={{ color: C.text }}>{item.delay}</span><span style={{ color: C.dim }}>  </span></>}
                   {item.damage && item.delay && (
-                    <span style={{ color: C.dim }}>({(item.damage / item.delay).toFixed(2)}/s)</span>
+                    <span style={{ color: C.dim }}>({(item.damage / item.delay).toFixed(2)})</span>
                   )}
                 </div>
               )}
