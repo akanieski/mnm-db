@@ -255,7 +255,7 @@ export default function ItemDetailPage() {
                   )}
                 </div>
               )}
-              {item.skill_weapon_hid && (item.slot_mask & 0b111) !== 0 && (
+              {item.skill_weapon_hid && (item.slot_mask & 0b111) !== 0 && !(item.slot_mask & 2 && item.ac) && (
                 <InfoLine label="Skill" value={fmtSkill(item.skill_weapon_hid)} />
               )}
               {(item.ac || item.weight || item.size_hid) && (
