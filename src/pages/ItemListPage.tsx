@@ -100,10 +100,12 @@ function ItemRow({ item }: { item: ItemSummary }) {
 export default function ItemListPage() {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  // URL params: ?q=&f=all&sort=ratio&skill=sla&slot=Chest
+  // URL params: ?q=&f=all&sort=ratio|ac&skill=sla&slot=Chest
   const query       = searchParams.get('q') ?? ''
   const filter      = (searchParams.get('f') ?? 'all') as FilterType
-  const sortRatio   = searchParams.get('sort') === 'ratio'
+  const sort        = searchParams.get('sort')
+  const sortRatio   = sort === 'ratio'
+  const sortAc      = sort === 'ac'
   const skillFilter = searchParams.get('skill')
   const slotFilter  = searchParams.get('slot')
 
@@ -131,10 +133,11 @@ export default function ItemListPage() {
     }, { replace: true })
   }
   const setSortRatio   = (on: boolean)          => setParam('sort', on ? 'ratio' : null)
+  const setSortAc      = (on: boolean)          => setParam('sort', on ? 'ac' : null)
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
 
-  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sortRatio || !!query
+  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sort || !!query
   const clearFilters = () => setSearchParams({}, { replace: true })
 
   const [items, setItems]     = useState<ItemSummary[]>([])
@@ -182,9 +185,11 @@ export default function ItemListPage() {
         const rb = (b.damage && b.delay) ? b.damage / b.delay : 0
         return rb - ra
       })
+    } else if (sortAc) {
+      list = [...list].sort((a, b) => (b.ac ?? 0) - (a.ac ?? 0))
     }
     return list
-  }, [items, skillFilter, slotFilter, sortRatio])
+  }, [items, skillFilter, slotFilter, sortRatio, sortAc])
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -238,6 +243,19 @@ export default function ItemListPage() {
             >
               <ArrowUpDown className="w-3.5 h-3.5" />
               Sort by Ratio
+            </button>
+          )}
+          {filter === 'armor' && (
+            <button
+              onClick={() => setSortAc(!sortAc)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
+                ${sortAc
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                }`}
+            >
+              <ArrowUpDown className="w-3.5 h-3.5" />
+              Sort by AC
             </button>
           )}
           {hasActiveFilters && (
@@ -294,7 +312,7 @@ export default function ItemListPage() {
 
       {/* Count */}
       <p className="text-xs text-muted-foreground mb-2 px-1">
-        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : ''}`}
+        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : sortAc ? ' · sorted by AC' : ''}`}
       </p>
 
       {/* List */}
