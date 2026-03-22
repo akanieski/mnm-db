@@ -199,7 +199,9 @@ export default function ItemListPage() {
   }, [items, skillFilter, slotFilter, sortRatio, sortAc])
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
+    <div className="h-screen flex flex-col overflow-hidden">
+      {/* Sticky top panel */}
+      <div className="max-w-3xl w-full mx-auto px-4 pt-8 pb-3 flex-shrink-0">
       {/* Header */}
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
@@ -413,29 +415,37 @@ export default function ItemListPage() {
           </div>
         )}
       </div>
+      {/* end sticky top panel */}
+      </div>
 
-      {/* Count */}
-      <p className="text-xs text-muted-foreground mb-2 px-1">
-        {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : sortAc ? ' · sorted by AC' : ''}`}
-      </p>
+      {/* Scrollable results */}
+      <div className="flex-1 overflow-y-auto min-h-0">
+        <div className="max-w-3xl w-full mx-auto px-4 pb-8">
 
-      {/* List */}
-      <div className="rounded-lg border border-border overflow-hidden">
-        {loading
-          ? Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="flex items-center gap-3 px-4 py-3 border-b border-border/50">
-                <Skeleton className="h-4 w-40" />
-                <Skeleton className="h-4 w-24 ml-auto" />
-              </div>
-            ))
-          : items.length === 0
-          ? (
-            <div className="py-16 text-center text-sm text-muted-foreground">
-              No items found
-            </div>
-          )
-          : displayItems.map(item => <ItemRow key={item.hid} item={item} />)
-        }
+          {/* Count */}
+          <p className="text-xs text-muted-foreground mb-2 px-1">
+            {loading ? 'Loading…' : `${displayItems.length} items${sortRatio ? ' · sorted by ratio' : sortAc ? ' · sorted by AC' : ''}`}
+          </p>
+
+          {/* List */}
+          <div className="rounded-lg border border-border overflow-hidden">
+            {loading
+              ? Array.from({ length: 12 }).map((_, i) => (
+                  <div key={i} className="flex items-center gap-3 px-4 py-3 border-b border-border/50">
+                    <Skeleton className="h-4 w-40" />
+                    <Skeleton className="h-4 w-24 ml-auto" />
+                  </div>
+                ))
+              : items.length === 0
+              ? (
+                <div className="py-16 text-center text-sm text-muted-foreground">
+                  No items found
+                </div>
+              )
+              : displayItems.map(item => <ItemRow key={item.hid} item={item} />)
+            }
+          </div>
+        </div>
       </div>
     </div>
   )
