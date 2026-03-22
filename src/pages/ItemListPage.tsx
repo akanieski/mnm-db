@@ -142,7 +142,8 @@ export default function ItemListPage() {
   const sortAc      = sort === 'ac'
   const skillFilter = searchParams.get('skill')
   const slotFilter  = searchParams.get('slot')
-  const statFilters = useMemo(() => parseStatFilters(searchParams.get('sf')), [searchParams])
+  // Local state for stat filters — instant reactivity (no URL round-trip on each keystroke)
+  const [localStatFilters, setLocalStatFilters] = useState<StatFilter[]>(() => parseStatFilters(searchParams.get('sf')))
 
   // Helper: patch one param without clobbering others
   const setParam = useCallback((key: string, value: string | null) => {
@@ -171,11 +172,11 @@ export default function ItemListPage() {
   const setSortAc      = (on: boolean)          => setParam('sort', on ? 'ac' : null)
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
-  const setStatFilters = (sf: StatFilter[])     => setParam('sf', sf.length ? serializeStatFilters(sf) : null)
+  const setStatFilters = (sf: StatFilter[]) => { setLocalStatFilters(sf) }
 
-  const activeFilterCount = (filter !== 'all' ? 1 : 0) + (skillFilter ? 1 : 0) + (slotFilter ? 1 : 0) + (sort ? 1 : 0) + (statFilters.length > 0 ? statFilters.length : 0)
+  const activeFilterCount = (filter !== 'all' ? 1 : 0) + (skillFilter ? 1 : 0) + (slotFilter ? 1 : 0) + (sort ? 1 : 0) + localStatFilters.length
   const hasActiveFilters  = activeFilterCount > 0 || !!query
-  const clearFilters      = () => setSearchParams({}, { replace: true })
+  const clearFilters      = () => { setSearchParams({}, { replace: true }); setLocalStatFilters([]) }
 
   // Auto-open panel when filters are present (e.g. navigating back with URL params)
   const [filtersOpen, setFiltersOpen] = useState(() => activeFilterCount > 0)
@@ -220,7 +221,7 @@ export default function ItemListPage() {
     let list = items
     if (skillFilter) list = list.filter(i => i.skill_weapon_hid === skillFilter)
     if (slotFilter)  list = list.filter(i => i.slots.includes(slotFilter))
-    for (const sf of statFilters) {
+    for (const sf of localStatFilters) {
       const min = sf.min !== '' ? Number(sf.min) : null
       const max = sf.max !== '' ? Number(sf.max) : null
       list = list.filter(i => {
@@ -240,7 +241,7 @@ export default function ItemListPage() {
       list = [...list].sort((a, b) => (b.ac ?? 0) - (a.ac ?? 0))
     }
     return list
-  }, [items, skillFilter, slotFilter, sortRatio, sortAc])
+  }, [items, skillFilter, slotFilter, sortRatio, sortAc, localStatFilters])
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
