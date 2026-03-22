@@ -204,7 +204,7 @@ export default function ItemListPage() {
           Item Database
           {stats && (
             <span className="ml-2 text-muted-foreground/60">
-              · {stats.withStats} / {stats.total} items with stats
+              · {stats.withStats} items
             </span>
           )}
         </p>
