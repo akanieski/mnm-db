@@ -61,7 +61,7 @@ function ItemRow({ item }: { item: ItemSummary }) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 shrink-0 ml-4">
+      <div className="hidden sm:flex items-center gap-2 shrink-0 ml-4">
         {statBits.map(s => (
           <Badge key={s!} variant="secondary" className="text-xs font-mono px-1.5 py-0">
             {s}
@@ -79,6 +79,18 @@ function ItemRow({ item }: { item: ItemSummary }) {
           <span className="text-xs text-muted-foreground/60 w-16 text-right truncate">
             {item.slots[0]}
           </span>
+        )}
+      </div>
+
+      {/* Mobile: show only the primary stat (damage/AC/weight) */}
+      <div className="flex sm:hidden items-center shrink-0 ml-3">
+        {primary && (
+          <span className="text-xs text-muted-foreground font-mono text-right">
+            {primary}
+          </span>
+        )}
+        {!item.has_stats && (
+          <span className="text-xs text-muted-foreground/30 italic">—</span>
         )}
       </div>
     </Link>
