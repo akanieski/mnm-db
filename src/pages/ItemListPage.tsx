@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown } from 'lucide-react'
 import { Input } from '@/components/ui/input'
@@ -86,12 +86,14 @@ function ItemRow({ item }: { item: ItemSummary }) {
 }
 
 export default function ItemListPage() {
-  const [query, setQuery]   = useState('')
-  const [filter, setFilter] = useState<FilterType>('all')
-  const [items, setItems]   = useState<ItemSummary[]>([])
-  const [stats, setStats]   = useState<{ total: number; withStats: number } | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [query, setQuery]       = useState('')
+  const [filter, setFilter]     = useState<FilterType>('all')
+  const [items, setItems]       = useState<ItemSummary[]>([])
+  const [stats, setStats]       = useState<{ total: number; withStats: number } | null>(null)
+  const [loading, setLoading]   = useState(true)
   const [sortRatio, setSortRatio] = useState(false)
+  const [skillFilter, setSkillFilter] = useState<string | null>(null)
+  const [slotFilter, setSlotFilter]   = useState<string | null>(null)
 
   const dq = useDebounce(query, 200)
 
@@ -108,16 +110,41 @@ export default function ItemListPage() {
   useEffect(() => { load() }, [load])
   useEffect(() => { fetchStats().then(setStats) }, [])
 
-  // Reset ratio sort when leaving weapon filter
-  useEffect(() => { if (filter !== 'weapon') setSortRatio(false) }, [filter])
+  // Reset sub-filters when changing main filter
+  useEffect(() => {
+    if (filter !== 'weapon') { setSortRatio(false); setSkillFilter(null) }
+    if (filter !== 'armor')  { setSlotFilter(null) }
+  }, [filter])
 
-  const displayItems = sortRatio
-    ? [...items].sort((a, b) => {
+  // Derive available skills / slots from fetched items
+  const availableSkills = useMemo(() => {
+    const skills = new Set<string>()
+    items.forEach(i => { if (i.skill_weapon_hid) skills.add(i.skill_weapon_hid) })
+    return Array.from(skills).sort()
+  }, [items])
+
+  const availableSlots = useMemo(() => {
+    const slots = new Set<string>()
+    items.forEach(i => i.slots.forEach(s => slots.add(s)))
+    const order = ['Head','Face','Ear','Neck','Shoulders','Chest','Back','Shirt',
+                   'Hands','Wrist','Finger','Waist','Legs','Feet','Primary','Secondary','Ranged','Ammo']
+    return order.filter(s => slots.has(s))
+  }, [items])
+
+  // Apply client-side sub-filters + sort
+  const displayItems = useMemo(() => {
+    let list = items
+    if (skillFilter) list = list.filter(i => i.skill_weapon_hid === skillFilter)
+    if (slotFilter)  list = list.filter(i => i.slots.includes(slotFilter))
+    if (sortRatio) {
+      list = [...list].sort((a, b) => {
         const ra = (a.damage && a.delay) ? a.damage / a.delay : 0
         const rb = (b.damage && b.delay) ? b.damage / b.delay : 0
         return rb - ra
       })
-    : items
+    }
+    return list
+  }, [items, skillFilter, slotFilter, sortRatio])
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
@@ -174,6 +201,46 @@ export default function ItemListPage() {
             </button>
           )}
         </div>
+
+        {/* Weapon skill sub-filter */}
+        {filter === 'weapon' && availableSkills.length > 0 && (
+          <div className="flex gap-1.5 flex-wrap">
+            <span className="text-xs text-muted-foreground self-center">Skill:</span>
+            {availableSkills.map(skill => (
+              <button
+                key={skill}
+                onClick={() => setSkillFilter(s => s === skill ? null : skill)}
+                className={`px-2.5 py-1 rounded text-xs font-mono font-medium transition-colors
+                  ${skillFilter === skill
+                    ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+              >
+                {skill.toUpperCase()}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Armor slot sub-filter */}
+        {filter === 'armor' && availableSlots.length > 0 && (
+          <div className="flex gap-1.5 flex-wrap">
+            <span className="text-xs text-muted-foreground self-center">Slot:</span>
+            {availableSlots.map(slot => (
+              <button
+                key={slot}
+                onClick={() => setSlotFilter(s => s === slot ? null : slot)}
+                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors
+                  ${slotFilter === slot
+                    ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+              >
+                {slot}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Count */}

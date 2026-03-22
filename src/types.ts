@@ -20,6 +20,7 @@ export interface ItemSummary {
   has_stats: number
   icon_id: string | null
   slots: string[]
+  skill_weapon_hid: string | null
 }
 
 export interface ItemDetail extends ItemSummary {

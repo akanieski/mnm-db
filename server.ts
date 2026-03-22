@@ -75,6 +75,7 @@ app.get('/api/items', (req, res) => {
       s.strength, s.stamina, s.dexterity, s.agility,
       s.intelligence, s.wisdom, s.charisma,
       s.health, s.mana, s.icon_id,
+      s.skill_weapon_hid,
       CASE WHEN s.hid IS NOT NULL THEN 1 ELSE 0 END AS has_stats
     FROM all_hids ah
     LEFT JOIN item_stats s ON ah.hid = s.hid
