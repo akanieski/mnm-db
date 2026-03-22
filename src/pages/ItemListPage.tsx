@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2 } from 'lucide-react'
+import { Search, Sword, Shield, Package, Sparkles, ArrowUpDown, Trash2, SlidersHorizontal, ChevronDown } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -137,8 +137,12 @@ export default function ItemListPage() {
   const setSkillFilter = (v: string | null)     => setParam('skill', v)
   const setSlotFilter  = (v: string | null)     => setParam('slot', v)
 
-  const hasActiveFilters = filter !== 'all' || !!skillFilter || !!slotFilter || !!sort || !!query
-  const clearFilters = () => setSearchParams({}, { replace: true })
+  const activeFilterCount = (filter !== 'all' ? 1 : 0) + (skillFilter ? 1 : 0) + (slotFilter ? 1 : 0) + (sort ? 1 : 0)
+  const hasActiveFilters  = activeFilterCount > 0 || !!query
+  const clearFilters      = () => setSearchParams({}, { replace: true })
+
+  // Auto-open panel when filters are present (e.g. navigating back with URL params)
+  const [filtersOpen, setFiltersOpen] = useState(() => activeFilterCount > 0)
 
   const [items, setItems]     = useState<ItemSummary[]>([])
   const [stats, setStats]     = useState<{ total: number; withStats: number } | null>(null)
@@ -207,105 +211,150 @@ export default function ItemListPage() {
       </div>
 
       {/* Search + Filters */}
-      <div className="flex flex-col gap-3 mb-4">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            placeholder="Search items…"
-            className="pl-9"
-            autoFocus
-          />
-        </div>
-        <div className="flex gap-1.5 flex-wrap items-center">
-          {FILTERS.map(f => (
-            <button
-              key={f.value}
-              onClick={() => setFilter(f.value)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
-                ${filter === f.value
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                }`}
-            >
-              {f.icon}{f.label}
-            </button>
-          ))}
-          {filter === 'weapon' && (
-            <button
-              onClick={() => setSortRatio(!sortRatio)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
-                ${sortRatio
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                }`}
-            >
-              <ArrowUpDown className="w-3.5 h-3.5" />
-              Sort by Ratio
-            </button>
-          )}
-          {filter === 'armor' && (
-            <button
-              onClick={() => setSortAc(!sortAc)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
-                ${sortAc
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                }`}
-            >
-              <ArrowUpDown className="w-3.5 h-3.5" />
-              Sort by AC
-            </button>
-          )}
-          {hasActiveFilters && (
-            <button
-              onClick={clearFilters}
-              title="Clear all filters"
-              className="ml-auto flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
-            >
-              <Trash2 className="w-3.5 h-3.5" />
-            </button>
-          )}
-        </div>
-
-        {/* Weapon skill sub-filter */}
-        {filter === 'weapon' && availableSkills.length > 0 && (
-          <div className="flex gap-1.5 flex-wrap">
-            <span className="text-xs text-muted-foreground self-center">Skill:</span>
-            {availableSkills.map(skill => (
-              <button
-                key={skill}
-                onClick={() => setSkillFilter(skillFilter === skill ? null : skill)}
-                className={`px-2.5 py-1 rounded text-xs font-mono font-medium transition-colors
-                  ${skillFilter === skill
-                    ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                  }`}
-              >
-                {skill.toUpperCase()}
-              </button>
-            ))}
+      <div className="flex flex-col gap-2 mb-4">
+        {/* Search row */}
+        <div className="flex gap-2">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Search items…"
+              className="pl-9"
+              autoFocus
+            />
           </div>
-        )}
+          {/* Filters toggle button */}
+          <button
+            onClick={() => setFiltersOpen(o => !o)}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-xs font-medium border transition-colors
+              ${filtersOpen || activeFilterCount > 0
+                ? 'border-primary/50 bg-primary/5 text-primary'
+                : 'border-border bg-muted text-muted-foreground hover:bg-muted/80'
+              }`}
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            Filters
+            {activeFilterCount > 0 && (
+              <span className="ml-0.5 flex items-center justify-center w-4 h-4 rounded-full bg-primary text-primary-foreground text-[10px] font-bold">
+                {activeFilterCount}
+              </span>
+            )}
+            <ChevronDown className={`w-3 h-3 transition-transform ${filtersOpen ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
 
-        {/* Armor slot sub-filter */}
-        {filter === 'armor' && availableSlots.length > 0 && (
-          <div className="flex gap-1.5 flex-wrap">
-            <span className="text-xs text-muted-foreground self-center">Slot:</span>
-            {availableSlots.map(slot => (
-              <button
-                key={slot}
-                onClick={() => setSlotFilter(slotFilter === slot ? null : slot)}
-                className={`px-2.5 py-1 rounded text-xs font-medium transition-colors
-                  ${slotFilter === slot
-                    ? 'bg-secondary text-secondary-foreground ring-1 ring-secondary-foreground/20'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                  }`}
-              >
-                {slot}
-              </button>
-            ))}
+        {/* Collapsible filter panel */}
+        {filtersOpen && (
+          <div className="flex flex-col gap-2 p-3 rounded-lg border border-border bg-muted/30">
+            {/* Type row */}
+            <div className="flex gap-1.5 flex-wrap items-center">
+              <span className="text-xs text-muted-foreground w-8 shrink-0">Type</span>
+              <div className="flex gap-1.5 flex-wrap flex-1">
+                {FILTERS.map(f => (
+                  <button
+                    key={f.value}
+                    onClick={() => setFilter(f.value)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
+                      ${filter === f.value
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-background text-muted-foreground border border-border hover:bg-muted/60'
+                      }`}
+                  >
+                    {f.icon}{f.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Sort row — weapons */}
+            {filter === 'weapon' && (
+              <div className="flex gap-1.5 flex-wrap items-center">
+                <span className="text-xs text-muted-foreground w-8 shrink-0">Sort</span>
+                <button
+                  onClick={() => setSortRatio(!sortRatio)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
+                    ${sortRatio
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background text-muted-foreground border border-border hover:bg-muted/60'
+                    }`}
+                >
+                  <ArrowUpDown className="w-3.5 h-3.5" />
+                  Ratio
+                </button>
+              </div>
+            )}
+
+            {/* Sort row — armor */}
+            {filter === 'armor' && (
+              <div className="flex gap-1.5 flex-wrap items-center">
+                <span className="text-xs text-muted-foreground w-8 shrink-0">Sort</span>
+                <button
+                  onClick={() => setSortAc(!sortAc)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors
+                    ${sortAc
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-background text-muted-foreground border border-border hover:bg-muted/60'
+                    }`}
+                >
+                  <ArrowUpDown className="w-3.5 h-3.5" />
+                  AC
+                </button>
+              </div>
+            )}
+
+            {/* Weapon skill sub-filter */}
+            {filter === 'weapon' && availableSkills.length > 0 && (
+              <div className="flex gap-1.5 flex-wrap items-center">
+                <span className="text-xs text-muted-foreground w-8 shrink-0">Skill</span>
+                {availableSkills.map(skill => (
+                  <button
+                    key={skill}
+                    onClick={() => setSkillFilter(skillFilter === skill ? null : skill)}
+                    className={`px-2.5 py-1.5 rounded-md text-xs font-mono font-medium transition-colors
+                      ${skillFilter === skill
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-background text-muted-foreground border border-border hover:bg-muted/60'
+                      }`}
+                  >
+                    {skill.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Armor slot sub-filter */}
+            {filter === 'armor' && availableSlots.length > 0 && (
+              <div className="flex gap-1.5 flex-wrap items-center">
+                <span className="text-xs text-muted-foreground w-8 shrink-0">Slot</span>
+                {availableSlots.map(slot => (
+                  <button
+                    key={slot}
+                    onClick={() => setSlotFilter(slotFilter === slot ? null : slot)}
+                    className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-colors
+                      ${slotFilter === slot
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-background text-muted-foreground border border-border hover:bg-muted/60'
+                      }`}
+                  >
+                    {slot}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Clear all */}
+            {hasActiveFilters && (
+              <div className="flex pt-1 border-t border-border/50">
+                <button
+                  onClick={clearFilters}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded text-xs text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                >
+                  <Trash2 className="w-3 h-3" />
+                  Clear all filters
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
