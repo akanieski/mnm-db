@@ -325,9 +325,9 @@ export default function ItemDetailPage() {
         )}
       </div>
 
-      {/* HID + capture timestamp below the panel */}
+      {/* capture timestamp below the panel */}
       <div style={{ fontFamily: '"Courier New", Courier, monospace', fontSize: '0.68rem', color: C.capture, marginTop: '0.4rem' }}>
-        <span>{item.hid}</span>
+        <span style={{ display: 'none' }}>{item.hid}</span>
         {item.scanned_at && (
           <span style={{ marginLeft: '1rem' }}>
             captured {new Date(item.scanned_at).toLocaleDateString()}

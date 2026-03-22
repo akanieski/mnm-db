@@ -60,7 +60,7 @@ function ItemRow({ item }: { item: ItemSummary }) {
           <span className="text-sm font-medium truncate group-hover:text-primary transition-colors">
             {item.name}
           </span>
-          <span className="text-xs text-muted-foreground truncate">{item.hid}</span>
+          <span className="text-xs text-muted-foreground truncate hidden"></span>
         </div>
       </div>
 
