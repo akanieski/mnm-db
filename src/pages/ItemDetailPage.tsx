@@ -108,9 +108,9 @@ function buildItemDescription(item: ItemDetail): string {
     ['CHA', item.charisma], ['HP', item.health], ['MP', item.mana],
     ['HP Regen', item.health_regen], ['MP Regen', item.mana_regen],
     ['Melee Haste', item.melee_haste], ['Ranged Haste', item.ranged_haste], ['Spell Haste', item.spell_haste],
-    ['SvIce', item.resist_ice], ['SvFire', item.resist_fire], ['SvElec', item.resist_electric],
-    ['SvMagic', item.resist_magic], ['SvCorrupt', item.resist_corrupt],
-    ['SvPoison', item.resist_poison], ['SvDisease', item.resist_disease], ['SvHoly', item.resist_holy],
+    ['SV Ice', item.resist_ice], ['SV Fire', item.resist_fire], ['SV Elec', item.resist_electric],
+    ['SV Magic', item.resist_magic], ['SV Corrupt', item.resist_corrupt],
+    ['SV Poison', item.resist_poison], ['SV Disease', item.resist_disease], ['SV Holy', item.resist_holy],
     ['Might', item.might], ['Grace', item.grace], ['Swiftness', item.swiftness],
     ['Constitution', item.constitution], ['Discipline', item.discipline],
   ]
@@ -255,7 +255,7 @@ export default function ItemDetailPage() {
                   )}
                 </div>
               )}
-              {item.skill_weapon_hid && (
+              {item.skill_weapon_hid && (item.slot_mask & 0b111) !== 0 && (
                 <InfoLine label="Skill" value={fmtSkill(item.skill_weapon_hid)} />
               )}
               {(item.ac || item.weight || item.size_hid) && (
@@ -289,10 +289,10 @@ export default function ItemDetailPage() {
                     ['Spell Haste', item.spell_haste],
                   ]} cols={2} />
                   <StatLine pairs={[
-                    ['SvIce', item.resist_ice],    ['SvFire', item.resist_fire],
-                    ['SvElec', item.resist_electric], ['SvMagic', item.resist_magic],
-                    ['SvCorrupt', item.resist_corrupt], ['SvPoison', item.resist_poison],
-                    ['SvDisease', item.resist_disease], ['SvHoly', item.resist_holy],
+                    ['SV Ice', item.resist_ice],    ['SV Fire', item.resist_fire],
+                    ['SV Elec', item.resist_electric], ['SV Magic', item.resist_magic],
+                    ['SV Corrupt', item.resist_corrupt], ['SV Poison', item.resist_poison],
+                    ['SV Disease', item.resist_disease], ['SV Holy', item.resist_holy],
                   ]} />
                   <StatLine pairs={[
                     ['Might', item.might], ['Grace', item.grace], ['Swiftness', item.swiftness],
