@@ -229,11 +229,9 @@ export default function ItemListPage() {
           <div className="mt-4 space-y-4 text-sm text-muted-foreground leading-relaxed">
             <p>
               This is a community-built item database for{' '}
-              <span className="text-foreground font-medium">Monsters &amp; Memories</span>, an
-              upcoming MMORPG developed by{' '}
-              <span className="text-foreground font-medium">Dragonhead Studios</span>. We have
-              enormous respect for the team and everything they are building — this project exists
-              purely out of love for the game.
+              <span className="text-foreground font-medium">Monsters &amp; Memories</span>. We have
+              enormous respect for the Monsters &amp; Memories team and everything they are building
+              — this project exists purely out of love for the game.
             </p>
             <p>
               Item data shown here is collected passively while playing the game. When the game
@@ -249,8 +247,8 @@ export default function ItemListPage() {
             </p>
             <p>
               Item stats, names, icons, and other details are the intellectual property of
-              Dragonhead Studios. This site is a fan project and is not affiliated with or endorsed
-              by the Monsters &amp; Memories team.
+              the Monsters &amp; Memories team. This site is a fan project and is not affiliated
+              with or endorsed by the Monsters &amp; Memories team.
             </p>
             <p>
               The source code for this project is{' '}
