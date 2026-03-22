@@ -259,7 +259,7 @@ export default function ItemDetailPage() {
                 <div>
                   {item.damage != null && <><span style={{ color: C.label }}>Weapon DMG: </span><span style={{ color: C.text }}>{item.damage}</span><span style={{ color: C.dim }}>  </span></>}
                   {item.delay  != null && <><span style={{ color: C.label }}>ATK Delay: </span><span style={{ color: C.text }}>{item.delay}</span><span style={{ color: C.dim }}>  </span></>}
-                  {item.damage && item.delay && (
+                  {!!(item.damage && item.delay) && (
                     <span style={{ color: C.dim }}>({(item.damage / item.delay).toFixed(2)})</span>
                   )}
                 </div>
