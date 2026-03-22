@@ -55,6 +55,7 @@ export interface ItemDetail extends ItemSummary {
   two_handed: number | null
   skill_weapon_hid: string | null
   size_hid: string | null
+  description: string | null
   scanned_at: string | null
 }
 

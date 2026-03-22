@@ -241,6 +241,15 @@ export default function ItemDetailPage() {
           </div>
         ) : (
           <>
+            {/* ── Lore / description ── */}
+            {item.description && (
+              <>
+                <div style={{ padding: '0.5rem 1rem', fontStyle: 'italic', color: '#b8aa78', lineHeight: 1.5 }}>
+                  {item.description}
+                </div>
+                <EQDivider />
+              </>
+            )}
             {/* ── Core stats ── */}
             <Section>
               {item.slots.length > 0 && (
