@@ -37,10 +37,7 @@ const STAT_OPTIONS: { key: keyof ItemSummary; label: string }[] = [
 
 interface StatFilter { stat: string; min: string; max: string }
 
-// Serialize/deserialize stat filters to/from URL: "str:5:,int::10"
-function serializeStatFilters(sf: StatFilter[]): string {
-  return sf.map(f => `${f.stat}:${f.min}:${f.max}`).join(',')
-}
+// Deserialize stat filters from URL: "str:5:,int::10"
 function parseStatFilters(raw: string | null): StatFilter[] {
   if (!raw) return []
   return raw.split(',').map(s => {
@@ -225,7 +222,7 @@ export default function ItemListPage() {
       const min = sf.min !== '' ? Number(sf.min) : null
       const max = sf.max !== '' ? Number(sf.max) : null
       list = list.filter(i => {
-        const v = Number((i as Record<string, unknown>)[sf.stat] ?? 0)
+        const v = Number((i as unknown as Record<string, unknown>)[sf.stat] ?? 0)
         if (min !== null && v < min) return false
         if (max !== null && v > max) return false
         return true
