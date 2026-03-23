@@ -341,8 +341,27 @@ export default function ItemListPage() {
               with or endorsed by the Monsters &amp; Memories team.
             </p>
             <p>
-              The source code for this project is{' '}
-              <span className="text-foreground font-medium">not open source at this time</span>.
+              We welcome pull requests — especially improvements that keep the data clean and
+              trustworthy (data hygiene, consistency fixes, missing fields, and quality/validation
+              updates). If you'd like to help, please read our{' '}
+              <a
+                href="https://github.com/akanieski/mnm-db/blob/master/CONTRIBUTING.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground font-medium underline underline-offset-2 hover:text-primary transition-colors"
+              >
+                contribution guidelines
+              </a>
+              , and feel free to open a PR on the{' '}
+              <a
+                href="https://github.com/akanieski/mnm-db"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground font-medium underline underline-offset-2 hover:text-primary transition-colors"
+              >
+                GitHub repo
+              </a>
+              .
             </p>
             <div className="rounded-lg border border-indigo-500/40 bg-indigo-500/10 p-4 space-y-2">
               <div className="flex items-center gap-2 text-indigo-400 font-semibold text-sm">
