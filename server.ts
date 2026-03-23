@@ -149,7 +149,55 @@ app.get('/api/stats', (_req, res) => {
   const withStats = (db.prepare(`SELECT COUNT(*) as n FROM item_stats`).get() as {n:number}).n
   const weapons = (db.prepare(`SELECT COUNT(*) as n FROM item_stats WHERE damage > 0`).get() as {n:number}).n
   const armor   = (db.prepare(`SELECT COUNT(*) as n FROM item_stats WHERE ac > 0`).get() as {n:number}).n
-  res.json({ total, withStats, weapons, armor })
+  let spells = 0
+  try { spells = (db.prepare(`SELECT COUNT(*) as n FROM spell_stats`).get() as {n:number}).n } catch {}
+  res.json({ total, withStats, weapons, armor, spells })
+})
+
+// ─── Spells API ───────────────────────────────────────────────────────────────
+
+// GET /api/spells?q=&school=&bookType=&skill=&category=&limit=200
+app.get('/api/spells', (req, res) => {
+  const q        = (req.query.q as string || '').trim()
+  const school   = req.query.school as string || ''
+  const bookType = req.query.bookType as string || ''
+  const skill    = req.query.skill as string || ''
+  const category = req.query.category as string || ''
+  const limit    = Math.min(Number(req.query.limit) || 200, 500)
+
+  try {
+    let sql = `SELECT * FROM spell_stats WHERE 1=1`
+    const params: (string | number)[] = []
+
+    if (q) {
+      sql += ` AND (hid LIKE ? OR name LIKE ? OR description LIKE ?)`
+      params.push(`%${q}%`, `%${q}%`, `%${q}%`)
+    }
+    if (school)   { sql += ` AND school_hid = ?`;        params.push(school) }
+    if (bookType) { sql += ` AND book_type_hid = ?`;     params.push(bookType) }
+    if (skill)    { sql += ` AND primary_skill_hid = ?`; params.push(skill) }
+    if (category) { sql += ` AND category_hid = ?`;      params.push(category) }
+
+    sql += ` ORDER BY COALESCE(level, 0), name LIMIT ?`
+    params.push(limit)
+
+    const spells = db.prepare(sql).all(...params) as Record<string, unknown>[]
+    res.json({ spells, total: spells.length })
+  } catch (e) {
+    // Table may not exist yet if no spells collected
+    res.json({ spells: [], total: 0 })
+  }
+})
+
+// GET /api/spells/:hid
+app.get('/api/spells/:hid', (req, res) => {
+  try {
+    const spell = db.prepare(`SELECT * FROM spell_stats WHERE hid = ?`).get(req.params.hid) as Record<string, unknown> | undefined
+    if (!spell) { res.status(404).json({ error: 'Not found' }); return }
+    res.json(spell)
+  } catch {
+    res.status(404).json({ error: 'Not found' })
+  }
 })
 
 // ─── SSR meta tag injection ───────────────────────────────────────────────────
@@ -269,6 +317,30 @@ app.get('/items/:hid', async (req, res, next) => {
     const { hid } = req.params
     const item = db.prepare(`SELECT * FROM item_stats WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined
     const metaTags = buildMetaTags(item ?? null, hid)
+    const html = await renderHtml(req.url, metaTags)
+    res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
+  } catch (e) {
+    next(e)
+  }
+})
+
+// HTML route for spell pages
+app.get('/spells/:hid', async (req, res, next) => {
+  try {
+    const { hid } = req.params
+    let spell: Record<string, unknown> | undefined
+    try { spell = db.prepare(`SELECT * FROM spell_stats WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined } catch {}
+    const name  = escHtml((spell?.name as string) || hid)
+    const title = `${name} — Monsters &amp; Memories Spell Database`
+    const desc  = spell?.description
+      ? escHtml(spell.description as string)
+      : `${name} — a ${spell?.book_type_hid ?? 'spell'} in Monsters &amp; Memories`
+    const metaTags = [
+      `<title>${title}</title>`,
+      `<meta name="description" content="${desc}" />`,
+      `<meta property="og:title" content="${title}" />`,
+      `<meta property="og:description" content="${desc}" />`,
+    ].join('\n    ')
     const html = await renderHtml(req.url, metaTags)
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {

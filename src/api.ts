@@ -1,4 +1,4 @@
-import type { ItemSummary, ItemDetail, FilterType } from './types'
+import type { ItemSummary, ItemDetail, FilterType, SpellSummary } from './types'
 
 const BASE = '/api'
 
@@ -21,5 +21,18 @@ export async function fetchStats(): Promise<{
   total: number; withStats: number; weapons: number; armor: number
 }> {
   const res = await fetch(`${BASE}/stats`)
+  return res.json()
+}
+
+export async function fetchSpells(params: Record<string, string>): Promise<{ spells: SpellSummary[]; total: number }> {
+  const p = new URLSearchParams({ limit: '200', ...params })
+  const res = await fetch(`${BASE}/spells?${p}`)
+  if (!res.ok) throw new Error('Failed to fetch spells')
+  return res.json()
+}
+
+export async function fetchSpell(hid: string): Promise<SpellSummary> {
+  const res = await fetch(`${BASE}/spells/${encodeURIComponent(hid)}`)
+  if (!res.ok) throw new Error('Not found')
   return res.json()
 }

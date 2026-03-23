@@ -60,3 +60,33 @@ export interface ItemDetail extends ItemSummary {
 }
 
 export type FilterType = 'all' | 'stats' | 'weapon' | 'armor'
+
+export interface SpellSummary {
+  hid: string
+  name: string
+  description: string | null
+  level: number | null
+  mana_cost: number | null
+  cast_time: number | null
+  cooldown: number | null
+  school_hid: string | null
+  category_hid: string | null
+  target_hid: string | null
+  book_type_hid: string | null
+  type_hid: string | null
+  is_toggle: number | null
+  can_fizzle: number | null
+  no_interrupt: number | null
+  cast_while_moving: number | null
+  cooldown_hid: string | null
+  global_cooldown: number | null
+  range: number | null
+  reagent_name: string | null
+  resist_element_hid: string | null
+  area_effect_hid: string | null
+  area_effect_target_cap: number | null
+  icon_hid: string | null
+  primary_skill_hid: string | null
+  school_name: string | null
+  scanned_at: string | null
+}

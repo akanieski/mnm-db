@@ -274,6 +274,12 @@ export default function ItemListPage() {
             >
               Learn More
             </button>
+            <Link
+              to="/spells"
+              className="text-xs text-muted-foreground/50 hover:text-muted-foreground underline underline-offset-2 transition-colors"
+            >
+              Spells
+            </Link>
           </p>
         </div>
         <ThemeToggle />
