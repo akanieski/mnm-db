@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 130766
+damage: 16
+delay: 52
+hid: rusty_steel_2hammer
+icon_id: sledgehammer1_weapon
+item_type: 0
+name: Rusty Steel Maul
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+two_handed: 1
+weight: 13.0

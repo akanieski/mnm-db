@@ -1,0 +1,13 @@
+ac: 0
+class_mask: 33800
+damage: 0
+delay: 0
+hid: scl_lull_beast
+item_type: 12
+name: 'Scroll: Lull Beast'
+race_mask: 4095
+required_level: 12
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

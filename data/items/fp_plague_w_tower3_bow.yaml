@@ -1,0 +1,17 @@
+ac: 0
+agility: 5
+class_mask: 122433
+damage: 20
+delay: 45
+dexterity: 6
+hid: fp_plague_w_tower3_bow
+icon_id: bow_wood_weapon:53C653:53C653:53C653:6.76:0:1:1
+item_type: 0
+magic: 1
+name: Longbow of the High Watchman
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+weight: 7.0

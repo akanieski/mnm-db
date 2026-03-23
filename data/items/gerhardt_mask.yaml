@@ -1,0 +1,16 @@
+ac: 2
+agility: 2
+class_mask: 130767
+damage: 0
+delay: 0
+hid: gerhardt_mask
+icon_id: mask_bone_equipment
+item_type: 0
+magic: 1
+name: Suede Leather Mask
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 128
+weight: 0.25

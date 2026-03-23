@@ -1,0 +1,19 @@
+ac: 31
+class_mask: 130767
+damage: 0
+delay: 0
+health: 5
+hid: gf_fgk_named_tracker_legs
+icon_id: pants_cloth_equipment
+item_type: 0
+magic: 1
+mana: 5
+name: Stalker's Leather Britches
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 524288
+stamina: 3
+strength: 7
+weight: 1.5

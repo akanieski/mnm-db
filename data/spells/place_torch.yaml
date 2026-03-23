@@ -1,0 +1,26 @@
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: skl
+cast_time: 3.0
+category_hid: na
+cooldown: 0.0
+cooldown_hid: place_torch
+description: 'Place a torch on the ground, providing light for a short time.
+
+  This skill requires a Torch.'
+global_cooldown: 2.0
+global_cooldown_hid: nil
+hid: place_torch
+icon_hid: torch
+level: -1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: Place Torch
+primary_skill_hid: nul
+range: 30.0
+reagent_name: Torch
+resist_element_hid: nul
+school_hid: nul
+target_hid: slf
+type_hid: nrm

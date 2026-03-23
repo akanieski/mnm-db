@@ -1,0 +1,9 @@
+ac: 0
+damage: 9
+delay: 50
+hid: trainee_longbow
+item_type: 0
+name: Trainee's Longbow
+required_level: 0
+slot_mask: 4
+weight: 3.0

@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 113731
+damage: 8
+delay: 34
+hid: rusty_steel_spear
+icon_id: spear4_weapon
+item_type: 0
+name: Rusty Steel Spear
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 7.0

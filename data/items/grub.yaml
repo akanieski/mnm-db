@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+hid: grub
+icon_id: worm_bait_tool
+item_type: 8
+name: Grub
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 8
+weight: 0.10000000149011612

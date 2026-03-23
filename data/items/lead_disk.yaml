@@ -1,0 +1,18 @@
+ac: 2
+class_mask: 262143
+damage: 0
+delay: 0
+description: A round hand-sized piece of lead. It bears the symbol of The Measure
+  on one side and the mark of an apprentice on the other. The wear marks along its
+  edge suggest you are not its first owner.
+hid: lead_disk
+icon_id: coin1:545252:848181:7D7A7A:1.739:1:1:1
+item_type: 0
+name: Lead Disk of the Apprentice
+race_mask: 4095
+required_level: 0
+resist_poison: -1
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 4
+weight: 0.10000000149011612

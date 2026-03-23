@@ -1,0 +1,18 @@
+ac: 14
+class_mask: 130767
+damage: 0
+delay: 0
+description: ' '
+hid: ip_sgs_an_onyx_outlaw_nerguk_24_common_leather_legs_24
+icon_id: pants_cloth_equipment
+item_type: 0
+magic: 1
+mana: 5
+name: Silent Outlaw Leggings
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 524288
+weight: 1.5
+wisdom: 2

@@ -1,0 +1,14 @@
+ac: 13
+class_mask: 130767
+damage: 0
+delay: 0
+hid: tattered_padded_leather_shld
+icon_id: shoulderpads
+item_type: 0
+name: Tattered Padded Leather Shoulderpads
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+weight: 0.5

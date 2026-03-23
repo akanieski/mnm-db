@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 34304
+damage: 0
+delay: 0
+description: Weakly heal your target, restoring 6 Health.
+hid: scrl_weakheal
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Weak Heal'
+race_mask: 4095
+required_level: 1
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

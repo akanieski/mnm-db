@@ -1,0 +1,13 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+hid: rawhide_saddlebag
+icon_id: backpack_leather_container
+item_type: 19
+name: Rawhide Saddlebag
+race_mask: 196608
+required_level: 0
+size_hid: xl
+skill_weapon_hid: nul
+slot_mask: 0

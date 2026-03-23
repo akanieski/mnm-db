@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+hid: gfbeetle_shell
+icon_id: beetlepart2:EE8138:EE8138:EE8138:4.429:0:0.386:1
+item_type: 0
+name: Giant Fire Beetle Carapace
+race_mask: 0
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 5.0

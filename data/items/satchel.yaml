@@ -1,0 +1,12 @@
+ac: 0
+damage: 0
+delay: 0
+hid: satchel
+icon_id: backpack_leather2_container 1
+item_type: 2
+name: Satchel
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.5

@@ -1,0 +1,17 @@
+ac: 6
+class_mask: 130767
+damage: 0
+delay: 0
+description: ' '
+hid: ip_wb_grandmaster_common_chain_head_10
+icon_id: helmet_steel1_equipment
+item_type: 0
+magic: 1
+name: Grandmaster's Dark Leather Hood
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 256
+strength: 2
+weight: 0.5

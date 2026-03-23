@@ -1,0 +1,16 @@
+ac: 0
+class_mask: 261491
+damage: 6
+delay: 20
+dexterity: 5
+hid: fp_plague_w_tower3_dagger
+icon_id: dagger1_weapon
+item_type: 0
+magic: 1
+name: Albury's Arming Dagger
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 3.0

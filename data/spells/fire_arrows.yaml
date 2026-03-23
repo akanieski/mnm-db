@@ -1,0 +1,31 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: int
+cast_time: 0.10000000149011612
+cast_while_moving: 1
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: fire_arrows
+description: "Imbue your arrows with fire, increasing your Ranged Damage dealt by\
+  \ 1 (L1) to 7 (L60) Fire Damage and granting you a chance to activate Fire Arrow\
+  \ Advantage on ranged attacks.\r\nFire Arrow Advantage: Seize the advantage, reducing\
+  \ the cast time of your next spell in the Flameburst or Burning Embers line by 100%\
+  \ for 10 seconds."
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: fire_arrows
+icon_hid: arrow_wood_weapon
+is_toggle: 1
+level: 11
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: 'Imbue Arrows: Fire'
+primary_skill_hid: nul
+range: 20.0
+resist_element_hid: nul
+school_hid: alt
+target_hid: slf
+type_hid: nrm

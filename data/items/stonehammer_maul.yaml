@@ -1,0 +1,21 @@
+ac: 0
+class_mask: 130766
+damage: 13
+delay: 46
+description: 'A maul crafted to shatter both stone and bone. Its iron head is forged
+  in a dwarven style, while the sturdy heartwood shaft is wrapped in supple green
+  leather. Copper fittings bind the weapon together. '
+hid: stonehammer_maul
+icon_id: sledgehammer1_weapon
+item_type: 0
+magic: 1
+name: Stonehammer Maul
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+strength: 6
+two_handed: 1
+weight: 10.0

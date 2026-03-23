@@ -1,0 +1,18 @@
+ac: 9
+class_mask: 262143
+damage: 0
+delay: 0
+description: A bracelet torn from the hands of a screaming giant.
+hid: shs_giant_bracer
+icon_id: bracer_leather_equipment:F9F0F0:C7BE25:84DEEE:1.14:1:1:0.98
+intelligence: 4
+item_type: 0
+magic: 1
+name: Wristguard of Wailing
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 6144
+strength: 2
+weight: 0.25

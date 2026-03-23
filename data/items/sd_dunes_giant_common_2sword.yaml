@@ -1,0 +1,12 @@
+ac: 10
+damage: 15
+delay: 40
+hid: sd_dunes_giant_common_2sword
+item_type: 0
+name: Maleq's Toothpick
+required_level: 0
+resist_disease: 3
+resist_poison: 3
+slot_mask: 1
+strength: 5
+weight: 9.0

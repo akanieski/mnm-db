@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 262143
+damage: 6
+delay: 33
+hid: cracked_staff_t2
+icon_id: club_wooden4_weapon
+item_type: 0
+name: Cracked Fine Wood Staff
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 6.0

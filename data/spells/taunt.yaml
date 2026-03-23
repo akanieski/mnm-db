@@ -1,0 +1,31 @@
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: int
+cast_time: 0.0
+cast_while_moving: 1
+category_hid: hrm
+cooldown: 10.0
+cooldown_hid: martial
+description: 'Taunt your target, drawing their attention.
+
+  This ability is moderately difficult to resist.
+
+  This ability shares a cooldown with other Martial abilities.'
+global_cooldown: 2.0
+global_cooldown_hid: nil
+hid: taunt
+icon_hid: shout
+level: 1
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+must_face_target: 1
+name: Taunt
+no_interrupt: 1
+primary_skill_hid: nul
+range: 8.0
+resist_element_hid: phy
+school_hid: mar
+target_hid: otr
+type_hid: nrm

@@ -1,0 +1,13 @@
+ac: 0
+damage: 16
+delay: 40
+hid: gf_fgk_named_warwiz_staff
+intelligence: 5
+item_type: 0
+mana: 30
+name: Carved Warstaff
+required_level: 0
+resist_fire: 5
+slot_mask: 1
+stamina: 3
+weight: 7.800000190734863

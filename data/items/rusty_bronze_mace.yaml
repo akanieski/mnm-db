@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 130766
+damage: 7
+delay: 40
+hid: rusty_bronze_mace
+icon_id: sledgehammer2_weapon:C86508:C86508:FFFFFF:1:1:1:1
+item_type: 0
+name: Corroded Bronze Mace
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 7.0

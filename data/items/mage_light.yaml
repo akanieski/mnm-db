@@ -1,0 +1,9 @@
+ac: 0
+damage: 0
+delay: 0
+hid: mage_light
+item_type: 10
+name: Mage Light
+required_level: 0
+slot_mask: 7
+weight: 0.10000000149011612

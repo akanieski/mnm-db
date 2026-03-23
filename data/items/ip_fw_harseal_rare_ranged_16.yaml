@@ -1,0 +1,21 @@
+ac: 0
+class_mask: 122433
+damage: 11
+delay: 37
+description: Harseal spoke a summoning, but slipped on a single glyph. The error tore
+  open a rift, releasing a furious archer of living flame. He banished it with great
+  effort, burned and shaking—its smoldering bow left on the lab floor.
+dexterity: 1
+health: 10
+hid: ip_fw_harseal_rare_ranged_16
+icon_id: bow_wood_weapon
+item_type: 0
+magic: 1
+name: Lavashot Longbow
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+strength: 3
+weight: 3.0

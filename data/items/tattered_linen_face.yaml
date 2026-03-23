@@ -1,0 +1,14 @@
+ac: 3
+class_mask: 262143
+damage: 0
+delay: 0
+hid: tattered_linen_face
+icon_id: mask_bone_equipment
+item_type: 0
+name: Tattered Linen Veil
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 128
+weight: 0.25

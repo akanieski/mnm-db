@@ -1,0 +1,18 @@
+ac: 15
+charisma: 2
+class_mask: 81478
+damage: 0
+delay: 0
+health: 5
+hid: enchanted_copper_chain_legs
+icon_id: pants_chain_equipment:953D21:953D21:9F4528:1:1:1.17:1
+item_type: 0
+magic: 1
+name: Enchanted Copper Chain Leggings
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 524288
+strength: 2
+weight: 2.0

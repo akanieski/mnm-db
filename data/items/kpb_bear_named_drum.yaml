@@ -1,0 +1,20 @@
+ac: 0
+charisma: 2
+class_mask: 2
+damage: 0
+delay: 0
+description: A battle drum fashioned from the hide of the infamous Redpaw. Its every
+  beat induces unease, as if recalling the terrifying struggle it took to claim it.
+hid: kpb_bear_named_drum
+icon_id: drum_normal
+item_type: 0
+magic: 1
+name: Redpaw Battle Drum
+percussion_mod: 25
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 2
+strength: 1
+weight: 1.2000000476837158

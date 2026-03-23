@@ -1,0 +1,27 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: skl
+cast_time: 0.0
+cast_while_moving: 1
+category_hid: ben
+cooldown: 300.0
+cooldown_hid: intelligent
+description: Become intelligent, increasing your Intelligence by 50% for 15 seconds.
+global_cooldown: 2.0
+global_cooldown_hid: nil
+hid: intelligent
+icon_hid: brain_pink
+level: -1
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: Intelligent
+no_interrupt: 1
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: alt
+target_hid: slf
+type_hid: nrm

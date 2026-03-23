@@ -1,0 +1,33 @@
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: int
+cast_time: 0.0
+category_hid: hrm
+cooldown: 10.0
+cooldown_hid: might
+description: 'Fire a whistling shot at your target, dealing 90% Weapon Damage plus
+  1 (L1) to 20 (L60) Physical Damage, and increasing your Threat against them by 25
+  (L1) to 250 (L60).
+
+  This ability requires a bow and arrows.
+
+  This ability shares a cooldown with other Might abilities.'
+global_cooldown: 2.0
+global_cooldown_hid: mel
+hid: whistling_shot
+icon_hid: magic_wind_full
+level: 10
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+must_face_target: 1
+name: Whistling Shot
+no_interrupt: 1
+primary_skill_hid: arc
+range: 40.0
+reagent_name: Arrow
+resist_element_hid: nul
+school_hid: mgt
+target_hid: otr
+type_hid: nrm

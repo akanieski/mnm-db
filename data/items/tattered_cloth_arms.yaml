@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+hid: tattered_cloth_arms
+icon_id: shirt_cloth_equipment
+item_type: 0
+name: Tattered Cloth Shirt
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 8192
+weight: 2.0

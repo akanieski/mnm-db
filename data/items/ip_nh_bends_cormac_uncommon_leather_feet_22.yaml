@@ -1,0 +1,18 @@
+ac: 9
+class_mask: 130767
+damage: 0
+delay: 0
+description: ' '
+health: 10
+hid: ip_nh_bends_cormac_uncommon_leather_feet_22
+icon_id: boots
+item_type: 0
+magic: 1
+name: Seafarer's Hide Boots
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 0.5
+wisdom: 4

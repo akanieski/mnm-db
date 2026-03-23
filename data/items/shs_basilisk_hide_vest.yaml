@@ -1,0 +1,21 @@
+ac: 28
+charisma: -5
+class_mask: 60555
+damage: 0
+delay: 0
+health: 25
+hid: shs_basilisk_hide_vest
+icon_id: shirt_chain_equipment:0A6D37:8C4804:BA591A:0.77:1:0.77:1.11
+item_type: 0
+magic: 1
+name: Basilisk Hide Vest
+race_mask: 4095
+required_level: 0
+resist_disease: 2
+resist_poison: 1
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 65536
+stamina: 3
+strength: 4
+weight: 3.0

@@ -1,0 +1,20 @@
+ac: 7
+class_mask: 262143
+damage: 0
+delay: 0
+description: Cuffs worn by those who pledge their undying loyalty to the Ten Hooks.
+health: 10
+hid: nh_bends_tenhooks_bracer
+icon_id: bracer_steel1_equipment:953D21:953D21:9F4528:1:1:1.17:1
+item_type: 0
+magic: 1
+name: Allegiance Cuffs
+race_mask: 4095
+required_level: 0
+resist_corrupt: 5
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 6144
+stamina: 2
+strength: 1
+weight: 0.25

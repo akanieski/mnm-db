@@ -1,0 +1,16 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+description: A book of enchantments.
+hid: trainee_tome_of_enchantment
+icon_id: book_mark_writing
+item_type: 4
+name: Trainee's Tome of Enchantment
+no_drop: 1
+race_mask: 0
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 2.5

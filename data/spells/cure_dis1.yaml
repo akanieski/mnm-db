@@ -1,0 +1,26 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 2.0
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: cure_dis1
+description: Cure your target, removing one Disease effect.
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: cure_dis1
+icon_hid: handblue
+level: 8
+los_requirement: 2
+mana_cost: 10
+max_target_level: -1
+min_target_level: -1
+name: Cure Disease
+primary_skill_hid: nul
+range: 20.0
+resist_element_hid: nul
+school_hid: alt
+target_hid: all
+type_hid: nrm

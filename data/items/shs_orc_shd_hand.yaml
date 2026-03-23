@@ -1,0 +1,10 @@
+ac: 33
+damage: 0
+delay: 0
+hid: shs_orc_shd_hand
+item_type: 0
+name: Witchguard Gauntlets
+required_level: 0
+slot_mask: 16384
+strength: 5
+weight: 3.0

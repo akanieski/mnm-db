@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 253507
+damage: 7
+delay: 32
+health: 10
+hid: brahsons_cleaver
+icon_id: cleaver_tool
+item_type: 0
+magic: 1
+name: Brahson's Cleaver
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 1
+stamina: 1
+strength: 2
+weight: 6.0

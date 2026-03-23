@@ -1,0 +1,17 @@
+ac: 38
+class_mask: 70212
+damage: 0
+delay: 0
+hid: ip_shs_cultist_rare_common_plate_shoulders_44
+intelligence: 3
+item_type: 0
+magic: 1
+mana: 5
+name: Kravvin Plate Mantle
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+stamina: 1
+weight: 3.0

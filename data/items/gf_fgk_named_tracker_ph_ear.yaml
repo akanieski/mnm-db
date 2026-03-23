@@ -1,0 +1,19 @@
+ac: 2
+class_mask: 120513
+damage: 0
+delay: 0
+health: 20
+hid: gf_fgk_named_tracker_ph_ear
+icon_id: earring_metal_gold_equipment:1A1A20:3B0606:440F10:1.14:0.33:0.33:1.05
+item_type: 0
+magic: 1
+mana: 15
+name: Wolf Tooth Earring
+race_mask: 4095
+required_level: 0
+resist_magic: 1
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 48
+strength: 4
+weight: 0.10000000149011612

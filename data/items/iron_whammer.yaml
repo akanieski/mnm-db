@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 130766
+damage: 7
+delay: 28
+hid: iron_whammer
+icon_id: sledgehammer2_weapon
+item_type: 0
+name: Iron Warhammer
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 7.0

@@ -1,0 +1,17 @@
+ac: 0
+agility: 2
+class_mask: 262143
+damage: 5
+delay: 25
+description: An inventive and highly practical tool that could have many uses.
+dexterity: 4
+hid: scw_hunters_knife
+icon_id: dagger1_weapon:7C7373:161111:766F6E:0.64:1:1:1
+item_type: 0
+name: Pocket Knife
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 7
+weight: 0.25

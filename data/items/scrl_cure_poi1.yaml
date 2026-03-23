@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 8716
+damage: 0
+delay: 0
+description: Cure your target, removing one Poison effect.
+hid: scrl_cure_poi1
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Cure Poison'
+race_mask: 4095
+required_level: 4294967295
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

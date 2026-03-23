@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 254908
+damage: 8
+delay: 39
+hid: worn_great_staff
+icon_id: club_wooden4_weapon
+item_type: 0
+name: Worn Great Staff
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+two_handed: 1
+weight: 9.0

@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+hid: hardened_ingot_mold
+icon_id: bag
+item_type: 0
+name: Hardened Ingot Mold
+race_mask: 0
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.25

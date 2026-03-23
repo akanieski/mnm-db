@@ -1,0 +1,18 @@
+ac: 5
+class_mask: 130767
+damage: 0
+delay: 0
+description: Chain-reinforced wraps stained by Rotmuzzle's frenzy. They heighten instinct,
+  sharpening reactions to sudden threats.
+hid: ip_esw_rabid_wolf_rare_common_chain_hands_6
+icon_id: gloves_leather_equipment
+item_type: 0
+magic: 1
+name: Gloves of the Rotting Hound
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 16384
+weight: 0.5
+wisdom: 1

@@ -1,0 +1,20 @@
+ac: 8
+class_mask: 70212
+damage: 0
+delay: 0
+description: A dented black iron girdle that reeks of rat filth, yet the craftsmanship
+  is exquisite.
+hid: overseer_rat_girdle
+icon_id: belt_leather_equipment
+item_type: 0
+magic: 1
+name: Dented Black Iron Girdle
+race_mask: 4095
+required_level: 0
+resist_disease: 2
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 262144
+stamina: 4
+strength: 4
+weight: 0.25

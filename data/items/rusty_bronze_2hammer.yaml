@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 130766
+damage: 11
+delay: 52
+hid: rusty_bronze_2hammer
+icon_id: sledgehammer1_weapon
+item_type: 0
+name: Corroded Bronze Maul
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+two_handed: 1
+weight: 13.0

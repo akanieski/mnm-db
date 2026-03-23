@@ -1,0 +1,19 @@
+ac: 3
+class_mask: 64
+damage: 0
+delay: 0
+description: A talisman displaying an arcane eye overlapping a crossed pair of swords.
+hid: inq_eye_talisman
+icon_id: necklace_metal_goldruby_equipment
+intelligence: 3
+item_type: 6
+magic: 1
+name: Spellbinder's Inquisitor Talisman
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 68
+strength: 3
+weight: 0.10000000149011612

@@ -1,0 +1,11 @@
+ac: 5
+damage: 0
+delay: 0
+health: 5
+hid: ip_esw_a_green_drakeling_rare_uncommon_plate_hands_7
+item_type: 0
+name: Drakeling's Emberclaw Gauntlets
+required_level: 0
+slot_mask: 16384
+strength: 2
+weight: 0.5

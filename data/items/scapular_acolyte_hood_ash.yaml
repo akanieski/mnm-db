@@ -1,0 +1,20 @@
+ac: 6
+class_mask: 144700
+damage: 0
+delay: 0
+description: A scorched hood of layered cloth and ash-stained prayer cords, once worn
+  by those who served flame without question.
+health: 3
+hid: scapular_acolyte_hood_ash
+icon_id: hoodmask_cloth_equipment:FFFFFF:FFFFFF:FFFFFF:0:1:1:1
+intelligence: 2
+item_type: 0
+magic: 1
+name: Scapular Acolyte Hood of Ashes
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 256
+weight: 0.25
+wisdom: 2

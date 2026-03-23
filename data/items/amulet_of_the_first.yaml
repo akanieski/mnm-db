@@ -1,0 +1,13 @@
+ac: 2
+agility: 1
+damage: 0
+delay: 0
+health: 10
+hid: amulet_of_the_first
+item_type: 0
+name: Amulet of the First
+required_level: 0
+slot_mask: 64
+stamina: 1
+strength: 2
+weight: 0.10000000149011612

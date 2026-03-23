@@ -1,0 +1,14 @@
+ac: 15
+class_mask: 81478
+damage: 0
+delay: 0
+hid: tarnished_iron_chain_shld
+icon_id: shoulders_metal2_equipment
+item_type: 0
+name: Tarnished Iron Chain Shoulderguards
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+weight: 2.0

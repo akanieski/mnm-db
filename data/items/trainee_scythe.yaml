@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 256
+damage: 4
+delay: 28
+hid: trainee_scythe
+icon_id: scythe1_weapon
+item_type: 0
+name: Trainee's Scythe
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 3
+weight: 5.0

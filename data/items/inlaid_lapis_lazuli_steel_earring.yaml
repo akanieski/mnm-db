@@ -1,0 +1,15 @@
+ac: 3
+class_mask: 262143
+damage: 0
+delay: 0
+hid: inlaid_lapis_lazuli_steel_earring
+item_type: 0
+name: Inlaid Lapis Lazuli Steel Earring
+race_mask: 4095
+required_level: 0
+resist_corrupt: 6
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 48
+weight: 0.10000000149011612
+wisdom: 6

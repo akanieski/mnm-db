@@ -1,0 +1,16 @@
+ac: 9
+charisma: -2
+class_mask: 131376
+damage: 0
+delay: 0
+hid: gallier_robe
+intelligence: 3
+item_type: 6
+magic: 1
+name: Robe of the Undying Scholar
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 65536
+weight: 1.100000023841858

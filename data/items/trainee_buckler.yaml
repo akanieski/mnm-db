@@ -1,0 +1,9 @@
+ac: 2
+damage: 0
+delay: 0
+hid: trainee_buckler
+item_type: 13
+name: Trainee's Buckler
+required_level: 0
+slot_mask: 2
+weight: 2.0

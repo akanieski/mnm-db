@@ -1,0 +1,26 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 3.0
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: minor_shield
+description: Encircle yourself with a magical shield, increasing your maximum Health
+  by 10, Armor Class by 5, and Magic Resistance by 5 for 1 hour.
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: minor_shield
+icon_hid: shieldbuff
+level: 1
+mana_cost: 10
+max_target_level: -1
+min_target_level: -1
+name: Minor Spellshield
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: abj
+target_hid: slf
+type_hid: nrm

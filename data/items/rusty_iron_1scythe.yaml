@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 120136
+damage: 6
+delay: 28
+hid: rusty_iron_1scythe
+icon_id: scythe1_weapon
+item_type: 0
+name: Rusty Iron Scythe
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 3
+weight: 5.0

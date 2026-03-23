@@ -1,0 +1,16 @@
+ac: 1
+class_mask: 262143
+damage: 0
+delay: 0
+dexterity: 3
+hid: inlaid_fire_emerald_silver_ring
+icon_id: ring:BCBCBC:089F68:BCBCBC:2.02:0:0.54:1.2
+item_type: 0
+name: Inlaid Fire Emerald Silver Ring
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 1536
+strength: 3
+weight: 0.10000000149011612

@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 8716
+damage: 13
+delay: 39
+health: 5
+hid: moonrise_staff
+item_type: 0
+magic: 1
+mana: 20
+name: Moonrise Staff
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+two_handed: 1
+weight: 3.0
+wisdom: 9

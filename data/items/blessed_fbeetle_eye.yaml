@@ -1,0 +1,19 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+description: The eye of a fire beetle. This one has been blessed by a druid or cleric.
+hid: blessed_fbeetle_eye
+icon_id: firebeetleeye
+item_type: 10
+magic: 1
+mana: 10
+name: Blessed Fire Beetle Eye
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 29360135
+weight: 0.10000000149011612
+wisdom: 2

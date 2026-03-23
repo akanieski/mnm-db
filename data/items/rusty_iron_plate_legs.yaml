@@ -1,0 +1,14 @@
+ac: 17
+class_mask: 70212
+damage: 0
+delay: 0
+hid: rusty_iron_plate_legs
+icon_id: legs_steel_equipment
+item_type: 0
+name: Rusty Iron Plate Greaves
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+weight: 3.0

@@ -1,0 +1,28 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 2.0
+category_hid: hrm
+cooldown: 0.0
+cooldown_hid: twisting_roots
+description: 'Root your target with twisting tendrils, immobilizing them for 30 seconds.
+
+  This spell has a strong chance to be removed by damage.'
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: twisting_roots
+icon_hid: root
+level: 9
+los_requirement: 2
+mana_cost: 15
+max_target_level: -1
+min_target_level: -1
+name: Twisting Roots
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: mag
+school_hid: alt
+target_hid: all
+type_hid: nrm

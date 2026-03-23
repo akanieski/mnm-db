@@ -1,0 +1,20 @@
+ac: 3
+class_mask: 16
+damage: 0
+delay: 0
+description: A reinforced sash affixed with two emblems.
+hid: nh_ele_belt_3
+icon_id: belt_leather_equipment:DC143C:C0C0C0:FFFFFF:1:1:1:1
+intelligence: 3
+item_type: 0
+magic: 1
+mana: 5
+name: Second Degree Fourfold Sash
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 262144
+stamina: 1
+weight: 0.25

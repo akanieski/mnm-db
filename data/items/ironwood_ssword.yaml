@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 253507
+damage: 8
+delay: 27
+health: 20
+hid: ironwood_ssword
+item_type: 0
+magic: 1
+name: Ironwood Shortsword
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 3
+weight: 5.0

@@ -1,0 +1,23 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+description: The once-eternal flame now begins to fade...
+dexterity: 3
+health: 15
+hid: orb_of_the_fading_flame
+icon_id: firebeetleeye
+intelligence: 3
+item_type: 10
+magic: 1
+mana: 15
+name: Orb of the Fading Flame
+race_mask: 4095
+required_level: 0
+resist_fire: 9
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 7
+spell_haste: 7
+weight: 0.10000000149011612
+wisdom: 3

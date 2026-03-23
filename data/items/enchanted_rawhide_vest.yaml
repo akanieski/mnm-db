@@ -1,0 +1,18 @@
+ac: 12
+class_mask: 130767
+damage: 0
+delay: 0
+dexterity: 2
+health: 10
+hid: enchanted_rawhide_vest
+icon_id: chest_leather_equipment
+item_type: 0
+magic: 1
+name: Enchanted Rawhide Tunic
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 65536
+strength: 2
+weight: 3.0

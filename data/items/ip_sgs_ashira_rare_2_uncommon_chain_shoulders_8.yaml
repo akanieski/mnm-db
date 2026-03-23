@@ -1,0 +1,19 @@
+ac: 6
+class_mask: 130767
+damage: 0
+delay: 0
+description: Shoulderguards etched by the shifting sands. Zahkir used them to read
+  desert winds and mirages, granting clarity when heat or glare distorts vision.
+hid: ip_sgs_ashira_rare_2_uncommon_chain_shoulders_8
+icon_id: shoulderpads
+item_type: 0
+magic: 1
+name: Dunewake Mirage Mantle
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+stamina: 1
+weight: 0.5
+wisdom: 2

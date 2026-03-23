@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 262143
+damage: 2
+delay: 30
+description: A curved spike used by miners to mine ore.
+hid: mining_pick
+icon_id: pickaxe_tool
+item_type: 0
+name: Mining Pick
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 1
+weight: 2.0

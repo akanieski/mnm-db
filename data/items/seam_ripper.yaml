@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 261491
+damage: 4
+delay: 30
+description: A small hooked blade used by tailors to rip seams and stitches.
+hid: seam_ripper
+icon_id: dagger1_weapon
+item_type: 0
+name: Seam Ripper
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 0.10000000149011612

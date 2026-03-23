@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 130767
+damage: 4
+delay: 32
+hid: trainee_club
+icon_id: club_wooden1_weapon
+item_type: 0
+name: Trainee's Club
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 7.5

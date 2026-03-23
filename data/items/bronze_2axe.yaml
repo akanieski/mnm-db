@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 102976
+damage: 14
+delay: 52
+hid: bronze_2axe
+icon_id: axe_2h_weapon:E59F39:292422:E59F39:1:1:1:1
+item_type: 0
+name: Bronze Battle Axe
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

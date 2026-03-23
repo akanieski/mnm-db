@@ -1,0 +1,18 @@
+ac: 3
+class_mask: 130767
+damage: 0
+delay: 0
+description: A defiled orcish bracer meant to guard the wrist from a twisted bowstring.
+hid: krindor_wristguard
+icon_id: bracer_leather_equipment
+item_type: 0
+magic: 1
+name: Krindor's Wristguard
+race_mask: 4095
+required_level: 0
+resist_disease: -3
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 6144
+strength: 1
+weight: 0.5

@@ -1,0 +1,18 @@
+ac: 39
+class_mask: 70212
+damage: 0
+delay: 0
+description: ' '
+health: 10
+hid: ip_fp_skrivar_rakamatar_common_plate_legs_42
+icon_id: legs_steel_equipment
+item_type: 0
+magic: 1
+name: Gore-Smeared Warleggings
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+strength: 3
+weight: 3.0

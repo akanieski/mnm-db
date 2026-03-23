@@ -1,0 +1,18 @@
+ac: 5
+class_mask: 1
+damage: 0
+delay: 0
+dexterity: 1
+health: 10
+hid: archer_weald_bracer_v2
+item_type: 0
+magic: 1
+name: Weald Scout Bracer
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 6144
+strength: 2
+weight: 0.5

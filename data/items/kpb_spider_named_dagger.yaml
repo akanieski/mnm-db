@@ -1,0 +1,17 @@
+ac: 0
+class_mask: 261491
+damage: 6
+delay: 23
+hid: kpb_spider_named_dagger
+icon_id: bone_small_bodypart:FFFFFF:7F0000:7F0000:1.84:1:2:1
+item_type: 0
+magic: 1
+melee_haste: 5
+name: Fang of the Recluse
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sta
+slot_mask: 1
+strength: 2
+weight: 2.0

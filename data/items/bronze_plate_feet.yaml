@@ -1,0 +1,14 @@
+ac: 15
+class_mask: 70212
+damage: 0
+delay: 0
+hid: bronze_plate_feet
+icon_id: boots_steel_equipment:CF8734:CF8734:CF8734:1.08:0:0.83:1.2
+item_type: 0
+name: Bronze Plate Boots
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 3.0

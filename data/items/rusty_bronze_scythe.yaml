@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 120136
+damage: 10
+delay: 46
+hid: rusty_bronze_scythe
+icon_id: scythe3_weapon:C86508:C86508:FFFFFF:1:1:1:1
+item_type: 0
+name: Corroded Bronze Great Scythe
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

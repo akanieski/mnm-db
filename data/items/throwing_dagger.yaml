@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 117891
+damage: 7
+delay: 40
+description: A dagger used for throwing.
+hid: throwing_dagger
+icon_id: dagger1_weapon
+item_type: 0
+name: Throwing Dagger
+race_mask: 4095
+required_level: 0
+size_hid: xs
+skill_weapon_hid: thr
+slot_mask: 4

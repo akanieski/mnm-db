@@ -1,0 +1,17 @@
+ac: 8
+agility: 1
+class_mask: 130767
+damage: 0
+delay: 0
+dexterity: 2
+health: 7
+hid: tunic_of_night
+item_type: 0
+magic: 1
+name: Tunic of Night
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 65536
+weight: 3.0

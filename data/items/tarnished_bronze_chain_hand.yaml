@@ -1,0 +1,14 @@
+ac: 8
+class_mask: 81478
+damage: 0
+delay: 0
+hid: tarnished_bronze_chain_hand
+icon_id: gloves_chain_equipment:C86F08:8C4C07:594F44:0.76:1:1.12:0.83
+item_type: 0
+name: Tarnished Bronze Chain Gloves
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 16384
+weight: 2.0

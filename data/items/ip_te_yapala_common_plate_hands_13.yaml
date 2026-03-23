@@ -1,0 +1,17 @@
+ac: 13
+class_mask: 70212
+damage: 0
+delay: 0
+description: ' '
+hid: ip_te_yapala_common_plate_hands_13
+icon_id: gloves_steel_equipment
+intelligence: 2
+item_type: 0
+magic: 1
+name: Desert Ironfists
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 16384
+weight: 3.0

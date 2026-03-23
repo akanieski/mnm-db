@@ -1,0 +1,19 @@
+ac: 0
+class_mask: 130766
+damage: 7
+delay: 32
+hid: wb_timmon_mace
+icon_id: scepter
+intelligence: 1
+item_type: 0
+magic: 1
+mana: 5
+name: Enchanted Battleworn Mace
+race_mask: 4095
+required_level: 0
+resist_magic: 1
+size_hid: md
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 4.0
+wisdom: 2

@@ -1,0 +1,14 @@
+ac: 2
+class_mask: 262143
+damage: 0
+delay: 0
+hid: tattered_cotton_cape
+icon_id: cloak
+item_type: 0
+name: Tattered Cotton Cape
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 131072
+weight: 0.25

@@ -1,0 +1,19 @@
+ac: 11
+class_mask: 70212
+damage: 0
+delay: 0
+description: Battle-worn boots that linger with Gurowl's cunning, granting the wearer
+  insight into the wilds and the beasts that roam them.
+health: 5
+hid: ip_btb_orc_rare_14_beast_common_plate_feet_14
+icon_id: boots_steel_equipment
+intelligence: 1
+item_type: 0
+magic: 1
+name: Beaststalker's Treads
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 3.0

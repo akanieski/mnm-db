@@ -1,0 +1,20 @@
+ac: 0
+class_mask: 254908
+damage: 10
+delay: 37
+description: A sporebound staff given in exchange for vengeance wrought.
+hid: esw_underveil_staff
+icon_id: club_wooden4_weapon
+intelligence: 4
+item_type: 0
+mana: 10
+name: Staff of Spores
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 1
+two_handed: 1
+weight: 8.0
+wisdom: 4

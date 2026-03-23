@@ -1,0 +1,14 @@
+ac: 19
+class_mask: 81478
+damage: 0
+delay: 0
+hid: rusty_steel_chain_legs
+icon_id: pants_chain_equipment
+item_type: 0
+name: Rusty Steel Chain Leggings
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 524288
+weight: 2.0

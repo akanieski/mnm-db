@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 113731
+damage: 6
+delay: 27
+dexterity: 2
+hid: gerhardt_spear
+icon_id: spear4_weapon
+item_type: 0
+magic: 1
+name: Drakeling Skewer
+race_mask: 4095
+required_level: 0
+resist_magic: 5
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 2
+weight: 7.0

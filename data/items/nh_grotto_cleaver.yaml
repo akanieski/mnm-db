@@ -1,0 +1,18 @@
+ac: 0
+charisma: -4
+class_mask: 253507
+damage: 10
+delay: 30
+hid: nh_grotto_cleaver
+icon_id: cleaver_tool:424040:401B05:5D8591:0.6:1:1:0.98
+item_type: 0
+magic: 1
+name: Eclipse Cleaver
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 1
+stamina: 5
+strength: 4
+weight: 6.0

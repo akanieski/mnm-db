@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 70208
+damage: 10
+delay: 46
+hid: tarnished_bronze_2lance
+icon_id: spear3_weapon:9C701D:3A1B01:93630A:1:0:1.65:1
+item_type: 0
+name: Tarnished Bronze War Lance
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 1
+two_handed: 1
+weight: 13.0

@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 130766
+damage: 4
+delay: 28
+hid: tarnished_whammer
+icon_id: sledgehammer2_weapon
+item_type: 0
+name: Tarnished Warhammer
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 7.0

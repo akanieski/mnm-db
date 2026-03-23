@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 113731
+damage: 9
+delay: 48
+hid: rusty_2spear
+icon_id: spear3_weapon
+item_type: 0
+name: Rusty Long Spear
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 1
+two_handed: 1
+weight: 13.0

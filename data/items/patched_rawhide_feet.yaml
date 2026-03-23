@@ -1,0 +1,14 @@
+ac: 3
+class_mask: 130767
+damage: 0
+delay: 0
+hid: patched_rawhide_feet
+icon_id: boots_leather2_equipment
+item_type: 0
+name: Patched Rawhide Boots
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 0.5

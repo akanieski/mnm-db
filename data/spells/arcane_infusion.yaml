@@ -1,0 +1,28 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+cast_time: 4.0
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: arcane_infusion
+description: "Infuse your mind with the arcane, increasing your Mana Regeneration\
+  \ by 1 (L1) to 10 (L60) and Casting Speed by 10% for 1 hour.\r\nAdditionally, if\
+  \ you land a killing blow with any of your offensive spells, a portion of the spell's\
+  \ Mana cost is refunded based on the effective damage dealt."
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: arcane_infusion
+icon_hid: brain_pink
+level: 1
+los_requirement: 1
+mana_cost: 10
+max_target_level: -1
+min_target_level: -1
+name: Arcane Infusion
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: alt
+target_hid: slf
+type_hid: nrm

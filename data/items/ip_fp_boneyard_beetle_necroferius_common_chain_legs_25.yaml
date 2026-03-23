@@ -1,0 +1,18 @@
+ac: 20
+class_mask: 81478
+damage: 0
+delay: 0
+description: ' '
+hid: ip_fp_boneyard_beetle_necroferius_common_chain_legs_25
+icon_id: pants_chain_equipment
+item_type: 0
+magic: 1
+name: Grave-Chitin Warshanks
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 524288
+stamina: 1
+weight: 2.0
+wisdom: 2

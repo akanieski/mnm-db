@@ -1,0 +1,14 @@
+ac: 4
+class_mask: 71238
+damage: 0
+delay: 0
+hid: kite_shield
+icon_id: shield_kite1_weapon:7D8476:7E8576:B6B9B3:1.43:1:1.05:1
+item_type: 13
+name: Kite Shield
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 2
+weight: 5.0

@@ -1,0 +1,20 @@
+ac: 0
+class_mask: 122433
+damage: 22
+delay: 50
+dexterity: 4
+health: 10
+hid: fp_skrivar_tora_bow
+item_type: 6
+magic: 1
+mana: 10
+name: Skri'Var Ranger's Bow
+race_mask: 4095
+required_level: 0
+resist_corrupt: 15
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+stamina: 4
+strength: 4
+weight: 7.0

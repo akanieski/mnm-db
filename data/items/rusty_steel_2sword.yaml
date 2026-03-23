@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 120387
+damage: 15
+delay: 50
+hid: rusty_steel_2sword
+icon_id: sword2_weapon
+item_type: 0
+name: Rusty Steel Greatsword
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

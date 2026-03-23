@@ -1,0 +1,20 @@
+ac: 6
+class_mask: 262143
+damage: 0
+delay: 0
+description: A layered mantle of char-stiffened cloth, heavy with ash and the faint
+  scent of burnt offerings long past.
+hid: acolyte_mantle_of_ash
+icon_id: shoulders_shawl_equipment:000000:000000:000000:0.724:1:1.17:0
+intelligence: 1
+item_type: 0
+magic: 1
+name: Acolyte Mantle of Ashes
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 32768
+stamina: 2
+weight: 0.3499999940395355
+wisdom: 1

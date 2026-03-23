@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 261491
+damage: 4
+delay: 30
+description: A pair of tools used to break down metal.
+hid: hammer_and_chisel
+icon_id: sledgehammer2_weapon
+item_type: 0
+name: Hammer and Chisel
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 1.0

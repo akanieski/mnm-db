@@ -1,0 +1,28 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: int
+cast_time: 0.0
+cast_while_moving: 1
+category_hid: ben
+cooldown: 3600.0
+cooldown_hid: truestrike
+description: Make your attacks strike true, increasing your Archery and Offense by
+  10 and Physical Damage dealt by 100% for 30 seconds.
+global_cooldown: 0.0
+global_cooldown_hid: nil
+hid: truestrike
+icon_hid: armblue
+level: 14
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: Truestrike
+no_interrupt: 1
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: alt
+target_hid: slf
+type_hid: nrm

@@ -1,0 +1,15 @@
+ac: 2
+class_mask: 262143
+damage: 0
+delay: 0
+description: A dull brass earring worn by one of the Waterdogs.
+hid: nh_bends_waterdogs_earring_dirty
+icon_id: earring_metal_gold_equipment:FFFFFF:FFFFFF:FFFFFF:2.02:0:0.54:1.2
+item_type: 0
+name: Dirty Pirate Earring
+race_mask: 4095
+required_level: 0
+size_hid: xs
+skill_weapon_hid: nul
+slot_mask: 48
+weight: 0.10000000149011612

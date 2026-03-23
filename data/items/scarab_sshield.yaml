@@ -1,0 +1,17 @@
+ac: 5
+charisma: -1
+class_mask: 130766
+damage: 0
+delay: 0
+description: A hardy shield fashioned from the iridescent carapace of a scarab.
+health: 5
+hid: scarab_sshield
+icon_id: shield_kite1_weapon:29BE28:29BF29:29BF29:0.8:1:1.56:1
+item_type: 13
+name: Scarab Shell Shield
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 2
+weight: 2.0

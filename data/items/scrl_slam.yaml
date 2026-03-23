@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 4672
+damage: 0
+delay: 0
+description: "Forcefully slam your target, dealing 100% Weapon Damage plus 1 (L1)\
+  \ to 20 (L60) Physical Damage, and increasing your Threat against them by 20 (L1)\
+  \ to 200 (L60).\r\nAdditionally, when behind your target, surprise them with a disorienting\
+  \ blow, stunning them for 1 second."
+hid: scrl_slam
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Slam'
+race_mask: 4095
+required_level: 4294967295
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

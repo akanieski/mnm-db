@@ -1,0 +1,22 @@
+ac: 0
+class_mask: 131376
+damage: 10
+delay: 37
+description: A blackened, wretched staff etched with burnished runes in a forgotten
+  tongue. Faint pulses of magic still cling to it, echoes of life refusing to fade.
+hid: burnt_rune_staff
+icon_id: club_wooden4_weapon:131010:141010:141010:0.92:0:2.07:1
+intelligence: 3
+item_type: 0
+magic: 1
+mana: 8
+name: Burnt Rune Staff
+race_mask: 4095
+required_level: 0
+resist_holy: 2
+resist_magic: 2
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 3
+two_handed: 1
+weight: 3.0

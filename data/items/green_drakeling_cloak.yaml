@@ -1,0 +1,17 @@
+ac: 2
+class_mask: 130767
+damage: 0
+delay: 0
+description: A cloak fashioned from the hide and scales of green drakelings.
+dexterity: 1
+hid: green_drakeling_cloak
+icon_id: cloak:44d936:44d936:44d936:1.2:0:1:1
+item_type: 0
+name: Green Drakeling Scale Cloak
+race_mask: 4095
+required_level: 0
+resist_poison: 2
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 131072
+weight: 0.25

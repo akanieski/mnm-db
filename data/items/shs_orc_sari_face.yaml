@@ -1,0 +1,18 @@
+ac: 9
+class_mask: 262143
+damage: 0
+delay: 0
+hid: shs_orc_sari_face
+icon_id: mask_bone_equipment:3F4852:741B17:8D2F2F:1.1:0.17:1.21:0.97
+item_type: 0
+magic: 1
+name: Mask of Penance
+race_mask: 4095
+required_level: 0
+resist_corrupt: -5
+resist_magic: 3
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 128
+strength: 4
+weight: 0.25

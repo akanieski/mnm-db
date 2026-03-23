@@ -1,0 +1,24 @@
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: skl
+cast_time: 0.0
+category_hid: na
+cooldown: 100.0
+cooldown_hid: forage
+description: Search your surroundings, attempting to gather food, drink, and other
+  supplies.
+global_cooldown: 0.0
+global_cooldown_hid: nil
+hid: forage
+icon_hid: leaf
+level: 0
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: Forage
+primary_skill_hid: nul
+range: 5.0
+resist_element_hid: nul
+school_hid: mgt
+target_hid: na
+type_hid: nrm

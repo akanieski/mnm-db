@@ -1,0 +1,17 @@
+ac: 0
+class_mask: 1
+damage: 14
+delay: 46
+dexterity: 2
+hid: archer_longbow_wyrdguard
+item_type: 0
+magic: 1
+name: Scout's Longbow of the Wyrdguard
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+strength: 2
+weight: 3.0

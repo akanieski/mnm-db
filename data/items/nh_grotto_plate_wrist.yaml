@@ -1,0 +1,18 @@
+ac: 25
+class_mask: 70212
+damage: 0
+delay: 0
+description: A gray shimmering bracer imbued with a mysterious material.
+health: 5
+hid: nh_grotto_plate_wrist
+icon_id: bracer_steel1_equipment:7ABED3:FFFFFF:FFFFFF:0.73:1:1:1
+item_type: 0
+magic: 1
+name: Moonveil Bracer
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 6144
+stamina: 4
+weight: 2.0

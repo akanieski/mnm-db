@@ -1,0 +1,19 @@
+ac: 44
+class_mask: 70212
+damage: 0
+delay: 0
+description: ' '
+hid: ip_gf_fgk_named_warwiz_wiz_48_common_plate_legs_48
+icon_id: legs_steel_equipment
+intelligence: 3
+item_type: 0
+magic: 1
+mana: 5
+name: Cinder-Wand Leggings
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+stamina: 1
+weight: 3.0

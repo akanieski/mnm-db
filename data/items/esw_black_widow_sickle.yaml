@@ -1,0 +1,13 @@
+ac: 0
+agility: 1
+damage: 6
+delay: 28
+health: 2
+hid: esw_black_widow_sickle
+intelligence: 2
+item_type: 0
+mana: 3
+name: Black Widow Sickle
+required_level: 0
+slot_mask: 3
+weight: 7.0

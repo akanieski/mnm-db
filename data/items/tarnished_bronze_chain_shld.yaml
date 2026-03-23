@@ -1,0 +1,14 @@
+ac: 10
+class_mask: 81478
+damage: 0
+delay: 0
+hid: tarnished_bronze_chain_shld
+icon_id: shoulders_metal2_equipment:C86F08:957046:C86F08:0.82:1:1:0.84
+item_type: 0
+name: Tarnished Bronze Chain Shoulderguards
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+weight: 2.0

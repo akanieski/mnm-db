@@ -1,0 +1,17 @@
+ac: 0
+class_mask: 516
+damage: 0
+delay: 0
+description: "Resuscitate a target corpse, restoring 35% Experience.\r\nThis spell\
+  \ inflicts Resurrection Illness on the target, reducing all of their stats for 3\
+  \ minutes."
+hid: scl_resuscitate
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Resuscitation'
+race_mask: 4095
+required_level: 4294967295
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

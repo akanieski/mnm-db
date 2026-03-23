@@ -1,0 +1,20 @@
+ac: 7
+class_mask: 130767
+damage: 0
+delay: 0
+description: An azure bat-skin cloak that settles around the body like a shadow ready
+  to take flight.
+health: 10
+hid: gf_cloak_of_chiropteran
+icon_id: cloak:0C79BC:065DBE:51AFF8:1.008:0.184:1:1
+item_type: 0
+magic: 1
+name: Cloak of the Chiropteran
+race_mask: 4095
+required_level: 0
+resist_electric: 1
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 131072
+strength: 3
+weight: 0.25

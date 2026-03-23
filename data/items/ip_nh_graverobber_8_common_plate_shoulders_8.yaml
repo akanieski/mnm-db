@@ -1,0 +1,17 @@
+ac: 6
+class_mask: 130767
+damage: 0
+delay: 0
+description: ' '
+hid: ip_nh_graverobber_8_common_plate_shoulders_8
+icon_id: shoulderpads
+item_type: 0
+magic: 1
+name: Grubbfist's Filthy Mantle
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+strength: 1
+weight: 0.5

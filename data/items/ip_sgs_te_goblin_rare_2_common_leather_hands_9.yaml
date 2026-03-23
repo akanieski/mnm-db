@@ -1,0 +1,18 @@
+ac: 5
+class_mask: 130767
+damage: 0
+delay: 0
+description: Leather gloves sewn with tiny bone runes. Grantha's hexcraft lingers
+  in them, lending a sharp, unsettling strength.
+hid: ip_sgs_te_goblin_rare_2_common_leather_hands_9
+icon_id: gloves_leather_equipment
+item_type: 0
+magic: 1
+name: Scrigglehex Bone-Stitch Gloves
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 16384
+strength: 1
+weight: 0.5

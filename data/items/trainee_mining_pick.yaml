@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 262143
+damage: 2
+delay: 30
+hid: trainee_mining_pick
+item_type: 0
+name: Trainee's Mining Pick
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 1
+weight: 2.0

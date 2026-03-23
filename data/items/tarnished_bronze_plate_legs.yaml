@@ -1,0 +1,14 @@
+ac: 13
+class_mask: 70212
+damage: 0
+delay: 0
+hid: tarnished_bronze_plate_legs
+icon_id: legs_steel_equipment:C86F08:C86F08:C86F08:1.05:0:1.12:0.83
+item_type: 0
+name: Tarnished Bronze Plate Greaves
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+weight: 3.0

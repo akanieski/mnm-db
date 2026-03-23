@@ -1,0 +1,15 @@
+ac: 0
+damage: 0
+delay: 0
+description: 'This is a generous snack.
+
+  The bright red fruit of a tomato plant. It has a sweet-sour flavor.'
+hid: tomato
+icon_id: tomato_food
+item_type: 6
+name: Tomato
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.20000000298023224

@@ -1,0 +1,16 @@
+ac: 0
+class_mask: 261491
+damage: 4
+delay: 23
+description: A particularly large fang from the pack leader of a den of maddened wolves.
+hid: alpha_wolf_fang
+icon_id: rattooth:F5E0CF:BE5131:E0C5C5:1:1:1:1
+item_type: 0
+name: Alpha Wolf Fang
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 1
+weight: 1.0

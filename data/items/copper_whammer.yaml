@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 130766
+damage: 5
+delay: 28
+hid: copper_whammer
+icon_id: sledgehammer2_weapon:C86508:C86508:FFFFFF:1:1:1:1
+item_type: 0
+name: Copper Warhammer
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: blg
+slot_mask: 3
+weight: 7.0

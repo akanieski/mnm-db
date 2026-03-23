@@ -1,0 +1,8 @@
+ac: 0
+damage: 7
+delay: 40
+hid: throwing_dagger_trn
+item_type: 0
+name: Trainee's Throwing Dagger
+required_level: 0
+slot_mask: 4

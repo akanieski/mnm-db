@@ -1,0 +1,18 @@
+ac: 32
+class_mask: 81478
+damage: 0
+delay: 0
+dexterity: 6
+health: 15
+hid: gf_fgk_named_tracker_hand
+icon_id: gloves_chain_equipment:95634E:FFFFFF:95634E:1.5:3.1:1:1
+item_type: 0
+magic: 1
+name: Untamed Spirit Grips
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 16384
+strength: 3
+weight: 2.0

@@ -1,20 +1,66 @@
 // Combined server — Express API + Vite (dev) or static (prod)
 import express from 'express'
-import Database from 'better-sqlite3'
 import path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
+import { load as yamlLoad } from 'js-yaml'
+import chokidar from 'chokidar'
 import type { ViteDevServer } from 'vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const DB_PATH = process.env.DATABASE_PATH ?? path.join(__dirname, 'mnm_gamedata.db')
+const ITEMS_DIR  = path.join(__dirname, 'data', 'items')
+const SPELLS_DIR = path.join(__dirname, 'data', 'spells')
 const IS_PROD = process.env.NODE_ENV === 'production'
 const PORT = Number(process.env.PORT) || 5173
 const DIST = path.join(__dirname, 'dist')
 
-const db = new Database(DB_PATH, { readonly: true })
 const app = express()
 app.use(express.json())
+
+// ─── In-memory data store ─────────────────────────────────────────────────────
+type ItemRow   = Record<string, unknown>
+type SpellRow  = Record<string, unknown>
+
+const itemsMap  = new Map<string, ItemRow>()
+const spellsMap = new Map<string, SpellRow>()
+
+function loadYamlFile<T extends Record<string, unknown>>(filePath: string): T | null {
+  try {
+    const raw = fs.readFileSync(filePath, 'utf-8')
+    return yamlLoad(raw) as T
+  } catch {
+    return null
+  }
+}
+
+function loadDir(dir: string, map: Map<string, Record<string, unknown>>) {
+  if (!fs.existsSync(dir)) return
+  for (const fname of fs.readdirSync(dir)) {
+    if (!fname.endsWith('.yaml')) continue
+    const d = loadYamlFile(path.join(dir, fname))
+    if (d?.hid) map.set(d.hid as string, d)
+  }
+}
+
+// Initial load
+loadDir(ITEMS_DIR,  itemsMap)
+loadDir(SPELLS_DIR, spellsMap)
+console.log(`[data] Loaded ${itemsMap.size} items, ${spellsMap.size} spells from YAML`)
+
+// Watch for changes from daemon (skip in prod)
+if (!IS_PROD) {
+  chokidar.watch(ITEMS_DIR, { ignoreInitial: true }).on('add', f => {
+    const d = loadYamlFile(f); if (d?.hid) itemsMap.set(d.hid as string, d)
+  }).on('change', f => {
+    const d = loadYamlFile(f); if (d?.hid) itemsMap.set(d.hid as string, d)
+  })
+  chokidar.watch(SPELLS_DIR, { ignoreInitial: true }).on('add', f => {
+    const d = loadYamlFile(f); if (d?.hid) spellsMap.set(d.hid as string, d)
+  }).on('change', f => {
+    const d = loadYamlFile(f); if (d?.hid) spellsMap.set(d.hid as string, d)
+  })
+}
+
 
 // ─── Slot helpers ─────────────────────────────────────────────────────────────
 const SLOT_NAMES: Record<number, string> = {
@@ -62,57 +108,26 @@ if (!IS_PROD) {
 
 // GET /api/items?q=sword&type=weapon&limit=100
 app.get('/api/items', (req, res) => {
-  const q = (req.query.q as string || '').trim()
-  const type = req.query.type as string || ''
-  const limit = Math.min(Number(req.query.limit) || 200, 500)
+  const q        = (req.query.q as string || '').trim().toLowerCase()
+  const type     = req.query.type as string || ''
+  const limit    = Math.min(Number(req.query.limit) || 200, 500)
 
-  // Union icons + item_stats HIDs so items captured live but not in icons are included
-  let sql = `
-    WITH all_hids AS (
-      SELECT hid FROM icons
-      UNION
-      SELECT hid FROM item_stats
-    )
-    SELECT
-      ah.hid,
-      COALESCE(s.name, ah.hid) AS name,
-      s.item_type,
-      s.slot_mask,
-      s.required_level,
-      s.damage,
-      s.delay,
-      s.ac,
-      s.weight,
-      s.strength, s.stamina, s.dexterity, s.agility,
-      s.intelligence, s.wisdom, s.charisma,
-      s.health, s.mana, s.icon_id,
-      s.skill_weapon_hid,
-      CASE WHEN s.hid IS NOT NULL THEN 1 ELSE 0 END AS has_stats
-    FROM all_hids ah
-    LEFT JOIN item_stats s ON ah.hid = s.hid
-    WHERE 1=1
-  `
-  const params: (string | number)[] = []
+  let results = Array.from(itemsMap.values())
 
-  if (q) {
-    sql += ` AND (ah.hid LIKE ? OR COALESCE(s.name, ah.hid) LIKE ?)`
-    params.push(`%${q}%`, `%${q}%`)
-  }
+  if (q) results = results.filter(r =>
+    ((r.hid as string) || '').toLowerCase().includes(q) ||
+    ((r.name as string) || '').toLowerCase().includes(q)
+  )
 
-  if (type === 'weapon') {
-    sql += ` AND s.damage > 0`
-  } else if (type === 'armor') {
-    sql += ` AND s.ac > 0`
-  } else if (type === 'stats') {
-    sql += ` AND s.hid IS NOT NULL`
-  }
+  if (type === 'weapon') results = results.filter(r => Number(r.damage) > 0)
+  else if (type === 'armor')  results = results.filter(r => Number(r.ac) > 0)
 
-  sql += ` ORDER BY has_stats DESC, COALESCE(s.name, ah.hid) LIMIT ?`
-  params.push(limit)
+  results.sort((a, b) => ((a.name as string) || '').localeCompare((b.name as string) || ''))
+  results = results.slice(0, limit)
 
-  const rows = db.prepare(sql).all(...params) as Record<string, unknown>[]
-  const items = rows.map(r => ({
+  const items = results.map(r => ({
     ...r,
+    has_stats: true,
     slots: slotsFromMask(Number(r.slot_mask) || 0),
   }))
 
@@ -122,46 +137,37 @@ app.get('/api/items', (req, res) => {
 // GET /api/items/:hid
 app.get('/api/items/:hid', (req, res) => {
   const hid = req.params.hid
+  const stats = itemsMap.get(hid)
 
-  const stats = db.prepare(`SELECT * FROM item_stats WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined
-  const icon  = db.prepare(`SELECT * FROM icons WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined
-
-  if (!icon && !stats) {
+  if (!stats) {
     res.status(404).json({ error: 'Not found' })
     return
   }
 
   // If this is a scroll item, find the linked spell by name
   let linked_spell: Record<string, unknown> | null = null
-  const itemName = (stats?.name ?? hid) as string
+  const itemName = (stats.name ?? hid) as string
   if (itemName.startsWith('Scroll: ')) {
     const spellName = itemName.slice(8)
-    try {
-      linked_spell = db.prepare(`SELECT * FROM spell_stats WHERE name = ? LIMIT 1`).get(spellName) as Record<string, unknown> | null ?? null
-    } catch {}
+    linked_spell = Array.from(spellsMap.values()).find(s => s.name === spellName) ?? null
   }
 
-  const item = {
+  res.json({
+    ...stats,
     hid,
-    name: itemName,
-    has_stats: !!stats,
-    slots: slotsFromMask(Number(stats?.slot_mask) || 0),
-    ...(stats || {}),
-    icon_data: icon,
+    has_stats: true,
+    slots: slotsFromMask(Number(stats.slot_mask) || 0),
     linked_spell,
-  }
-
-  res.json(item)
+  })
 })
 
 // GET /api/stats — summary counts
 app.get('/api/stats', (_req, res) => {
-  const total   = (db.prepare(`SELECT COUNT(*) as n FROM (SELECT hid FROM icons UNION SELECT hid FROM item_stats)`).get() as {n:number}).n
-  const withStats = (db.prepare(`SELECT COUNT(*) as n FROM item_stats`).get() as {n:number}).n
-  const weapons = (db.prepare(`SELECT COUNT(*) as n FROM item_stats WHERE damage > 0`).get() as {n:number}).n
-  const armor   = (db.prepare(`SELECT COUNT(*) as n FROM item_stats WHERE ac > 0`).get() as {n:number}).n
-  let spells = 0
-  try { spells = (db.prepare(`SELECT COUNT(*) as n FROM spell_stats`).get() as {n:number}).n } catch {}
+  const total     = itemsMap.size
+  const withStats = itemsMap.size
+  const weapons   = Array.from(itemsMap.values()).filter(r => Number(r.damage) > 0).length
+  const armor     = Array.from(itemsMap.values()).filter(r => Number(r.ac) > 0).length
+  const spells    = spellsMap.size
   res.json({ total, withStats, weapons, armor, spells })
 })
 
@@ -169,56 +175,46 @@ app.get('/api/stats', (_req, res) => {
 
 // GET /api/spells?q=&school=&bookType=&skill=&category=&limit=200
 app.get('/api/spells', (req, res) => {
-  const q        = (req.query.q as string || '').trim()
+  const q        = (req.query.q as string || '').trim().toLowerCase()
   const school   = req.query.school as string || ''
   const bookType = req.query.bookType as string || ''
   const skill    = req.query.skill as string || ''
   const category = req.query.category as string || ''
   const limit    = Math.min(Number(req.query.limit) || 200, 500)
 
-  try {
-    let sql = `SELECT * FROM spell_stats WHERE 1=1`
-    const params: (string | number)[] = []
+  let results = Array.from(spellsMap.values())
 
-    if (q) {
-      sql += ` AND (hid LIKE ? OR name LIKE ? OR description LIKE ?)`
-      params.push(`%${q}%`, `%${q}%`, `%${q}%`)
-    }
-    if (school)   { sql += ` AND school_hid = ?`;        params.push(school) }
-    if (bookType) { sql += ` AND book_type_hid = ?`;     params.push(bookType) }
-    if (skill)    { sql += ` AND primary_skill_hid = ?`; params.push(skill) }
-    if (category) { sql += ` AND category_hid = ?`;      params.push(category) }
+  if (q) results = results.filter(r =>
+    ((r.hid as string) || '').toLowerCase().includes(q) ||
+    ((r.name as string) || '').toLowerCase().includes(q) ||
+    ((r.description as string) || '').toLowerCase().includes(q)
+  )
+  if (school)   results = results.filter(r => r.school_hid === school)
+  if (bookType) results = results.filter(r => r.book_type_hid === bookType)
+  if (skill)    results = results.filter(r => r.primary_skill_hid === skill)
+  if (category) results = results.filter(r => r.category_hid === category)
 
-    sql += ` ORDER BY COALESCE(level, 0), name LIMIT ?`
-    params.push(limit)
+  results.sort((a, b) =>
+    (Number(a.level) || 0) - (Number(b.level) || 0) ||
+    ((a.name as string) || '').localeCompare((b.name as string) || '')
+  )
+  results = results.slice(0, limit)
 
-    const spells = db.prepare(sql).all(...params) as Record<string, unknown>[]
-    res.json({ spells, total: spells.length })
-  } catch (e) {
-    // Table may not exist yet if no spells collected
-    res.json({ spells: [], total: 0 })
-  }
+  res.json({ spells: results, total: results.length })
 })
 
 // GET /api/spells/:hid
 app.get('/api/spells/:hid', (req, res) => {
-  try {
-    const spell = db.prepare(`SELECT * FROM spell_stats WHERE hid = ?`).get(req.params.hid) as Record<string, unknown> | undefined
-    if (!spell) { res.status(404).json({ error: 'Not found' }); return }
+  const spell = spellsMap.get(req.params.hid)
+  if (!spell) { res.status(404).json({ error: 'Not found' }); return }
 
-    // Find any scroll items for this spell by name
-    let linked_scrolls: Record<string, unknown>[] = []
-    try {
-      const scrollName = `Scroll: ${spell.name as string}`
-      linked_scrolls = db.prepare(
-        `SELECT hid, name, icon_id, required_level FROM item_stats WHERE name = ? LIMIT 10`
-      ).all(scrollName) as Record<string, unknown>[]
-    } catch {}
+  const scrollName = `Scroll: ${spell.name as string}`
+  const linked_scrolls = Array.from(itemsMap.values())
+    .filter(r => r.name === scrollName)
+    .map(r => ({ hid: r.hid, name: r.name, icon_id: r.icon_id, required_level: r.required_level }))
+    .slice(0, 10)
 
-    res.json({ ...spell, linked_scrolls })
-  } catch {
-    res.status(404).json({ error: 'Not found' })
-  }
+  res.json({ ...spell, linked_scrolls })
 })
 
 // ─── SSR meta tag injection ───────────────────────────────────────────────────
@@ -336,8 +332,8 @@ async function renderHtml(url: string, metaTags: string): Promise<string> {
 app.get('/items/:hid', async (req, res, next) => {
   try {
     const { hid } = req.params
-    const item = db.prepare(`SELECT * FROM item_stats WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined
-    const metaTags = buildMetaTags(item ?? null, hid)
+    const item = itemsMap.get(hid) ?? null
+    const metaTags = buildMetaTags(item, hid)
     const html = await renderHtml(req.url, metaTags)
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
   } catch (e) {
@@ -349,8 +345,7 @@ app.get('/items/:hid', async (req, res, next) => {
 app.get('/spells/:hid', async (req, res, next) => {
   try {
     const { hid } = req.params
-    let spell: Record<string, unknown> | undefined
-    try { spell = db.prepare(`SELECT * FROM spell_stats WHERE hid = ?`).get(hid) as Record<string, unknown> | undefined } catch {}
+    const spell = spellsMap.get(hid)
     const name  = escHtml((spell?.name as string) || hid)
     const title = `${name} — Monsters &amp; Memories Spell Database`
     const desc  = spell?.description

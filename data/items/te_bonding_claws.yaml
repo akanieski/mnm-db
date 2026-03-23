@@ -1,0 +1,12 @@
+ac: 0
+agility: 2
+damage: 10
+delay: 32
+dexterity: 5
+hid: te_bonding_claws
+item_type: 0
+name: Claws of Bonding
+required_level: 0
+slot_mask: 3
+strength: 5
+weight: 5.0

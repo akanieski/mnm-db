@@ -1,0 +1,14 @@
+ac: 15
+class_mask: 70212
+damage: 0
+delay: 0
+hid: copper_plate_vest
+icon_id: chestplate_metal_equipment:953D21:953D21:9F4528:1:1:1.17:1
+item_type: 0
+name: Copper Plate Breastplate
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 65536
+weight: 6.0

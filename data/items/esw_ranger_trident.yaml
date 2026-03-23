@@ -1,0 +1,20 @@
+ac: 0
+class_mask: 113731
+damage: 8
+delay: 32
+description: A balanced spear with a long reach, symbolic of the Ardent Keeper's watch
+  over the lands of Calafrey.
+dexterity: 2
+hid: esw_ranger_trident
+icon_id: spear
+item_type: 0
+name: Reach of the Ardent Keeper
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 3
+stamina: 2
+strength: 2
+weight: 4.0

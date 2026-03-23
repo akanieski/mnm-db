@@ -1,0 +1,14 @@
+ac: 2
+class_mask: 130766
+damage: 0
+delay: 0
+hid: worn_buckler_t1
+icon_id: shield_round1_weapon:FFFFFF:FFFFFF:FFFFFF:0:1:1:1
+item_type: 13
+name: Worn Buckler
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 2
+weight: 2.0

@@ -1,0 +1,17 @@
+ac: 5
+agility: 3
+class_mask: 130767
+damage: 0
+delay: 0
+hid: ac_commander_mangles_cape
+icon_id: cloak:653F23:663F23:663F23:1.008:0.184:1:1
+item_type: 0
+magic: 1
+name: Commander's Cloak
+race_mask: 4095
+required_level: 0
+resist_fire: 2
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 131072
+weight: 0.25

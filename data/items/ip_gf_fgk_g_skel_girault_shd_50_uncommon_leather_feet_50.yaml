@@ -1,0 +1,19 @@
+ac: 22
+class_mask: 130767
+damage: 0
+delay: 0
+description: ' '
+dexterity: 5
+hid: ip_gf_fgk_g_skel_girault_shd_50_uncommon_leather_feet_50
+icon_id: boots
+item_type: 0
+magic: 1
+name: Trail Boots of the Bulwark
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+stamina: 1
+strength: 6
+weight: 0.5

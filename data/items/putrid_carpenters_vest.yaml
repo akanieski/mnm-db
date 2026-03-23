@@ -1,0 +1,22 @@
+ac: 24
+charisma: -4
+class_mask: 130767
+damage: 0
+delay: 0
+description: A well-worn vest that served Kallen faithfully in both craft and combat.
+  It reeks of centuries of decay and death.
+dexterity: 2
+hid: putrid_carpenters_vest
+icon_id: chest_leather_equipment
+item_type: 0
+magic: 1
+name: Putrid Carpenter's Vest
+race_mask: 4095
+required_level: 0
+resist_disease: -4
+resist_ice: 2
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 65536
+weight: 3.0
+wisdom: 2

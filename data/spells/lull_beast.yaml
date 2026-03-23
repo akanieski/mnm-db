@@ -1,0 +1,26 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 1.5
+category_hid: na
+cooldown: 0.0
+cooldown_hid: lull_beast
+description: "Lull a target beast, reducing their Aggro Radius for 2 minutes.\r\n\
+  This spell has a very slight chance to end early."
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: lull_beast
+icon_hid: mindmonster
+level: 12
+mana_cost: 10
+max_target_level: -1
+min_target_level: -1
+name: Lull Beasts
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: mag
+school_hid: alt
+target_hid: all
+type_hid: nrm

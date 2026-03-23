@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+description: The scale-laden skin of a Bight serpent.
+hid: kpb_snake_skin
+icon_id: pelt_fur_bodypart
+item_type: 0
+name: Bight Serpent Skin
+race_mask: 0
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

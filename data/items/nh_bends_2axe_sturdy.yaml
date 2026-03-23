@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 102976
+damage: 15
+delay: 50
+hid: nh_bends_2axe_sturdy
+icon_id: axe_2h_weapon
+item_type: 0
+magic: 1
+name: Sturdy Battle Axe
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+stamina: 3
+strength: 3
+two_handed: 1
+weight: 13.0

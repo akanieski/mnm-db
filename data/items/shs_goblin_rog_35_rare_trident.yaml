@@ -1,0 +1,20 @@
+ac: 5
+class_mask: 59394
+damage: 9
+delay: 29
+description: A trident wrought from the coral of the Twilight Sea; it is both beautiful
+  and dangerous.
+dexterity: 3
+hid: shs_goblin_rog_35_rare_trident
+icon_id: spear:00e5ff:00e5ff:00e5ff:0.2:0.2:2:2
+item_type: 0
+magic: 1
+name: Coral Trident
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 5
+weight: 5.0
+wisdom: 3

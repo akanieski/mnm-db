@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 120387
+damage: 13
+delay: 48
+hid: bronze_2sword
+icon_id: sword2_weapon:9C701D:3A1B01:93630A:1:0:1.65:1
+item_type: 0
+name: Bronze Greatsword
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

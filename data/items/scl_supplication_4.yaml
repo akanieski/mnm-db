@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 516
+damage: 0
+delay: 0
+description: "Cry out in prayer, increasing your Strength by 50, Mana Regeneration\
+  \ by 4, and granting you a chance to activate Fulfillment on melee attacks for 1\
+  \ minute.\r\nFulfillment: Your prayers are answered, increasing your Attack Speed\
+  \ by 4% for 30 seconds.\r\nThis effect stacks up to five times."
+hid: scl_supplication_4
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Supplication IV'
+race_mask: 4095
+required_level: 4294967295
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

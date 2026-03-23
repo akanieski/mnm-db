@@ -1,0 +1,12 @@
+ac: 16
+damage: 0
+delay: 0
+hid: enchanted_copper_plate_head
+intelligence: 2
+item_type: 0
+mana: 10
+name: Enchanted Copper Plate Helm
+required_level: 0
+slot_mask: 256
+stamina: 2
+weight: 1.0

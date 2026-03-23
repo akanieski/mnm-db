@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 120136
+damage: 14
+delay: 46
+hid: rusty_steel_scythe
+icon_id: scythe3_weapon
+item_type: 0
+name: Rusty Steel Great Scythe
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

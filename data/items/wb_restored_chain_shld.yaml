@@ -1,0 +1,24 @@
+ac: 15
+agility: 1
+charisma: 1
+class_mask: 11266
+damage: 0
+delay: 0
+dexterity: 1
+health: 5
+hid: wb_restored_chain_shld
+icon_id: shoulders_metal2_equipment
+item_type: 0
+magic: 1
+mana: 5
+name: Wyrmsbane Chain Shoulderguards
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+stamina: 1
+strength: 2
+weight: 2.0
+wisdom: 1

@@ -1,0 +1,14 @@
+ac: 0
+agility: 3
+damage: 9
+delay: 31
+dexterity: 4
+hid: cinder_beetle_serrated_mandible
+item_type: 0
+mana: -15
+name: Cinder Beetle Serrated Mandible
+required_level: 0
+resist_ice: -5
+slot_mask: 3
+strength: 4
+weight: 7.0

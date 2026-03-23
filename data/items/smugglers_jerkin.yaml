@@ -1,0 +1,12 @@
+ac: 27
+agility: 4
+damage: 0
+delay: 0
+dexterity: 2
+hid: smugglers_jerkin
+item_type: 0
+name: Smuggler's Jerkin
+required_level: 0
+resist_magic: 5
+slot_mask: 65536
+weight: 3.0

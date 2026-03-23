@@ -1,0 +1,19 @@
+ac: 3
+class_mask: 74437
+damage: 0
+delay: 0
+description: 'A leather thong holding a single platinum coin. The coin is concave
+  with a dent that was seemingly made by an arrow. '
+health: 20
+hid: dhugs_lucky_charm
+icon_id: necklace:BFE2E2:C5E2DC:D8F5EC:2.183:1:1:1
+item_type: 0
+magic: 1
+name: Dented Platinum Coin Pendant
+race_mask: 4095
+required_level: 0
+resist_magic: 1
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 64
+weight: 0.10000000149011612

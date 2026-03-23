@@ -1,0 +1,14 @@
+ac: 5
+class_mask: 70212
+damage: 0
+delay: 0
+hid: rusty_steel_plate_neck
+icon_id: necklace_metal_goldruby_equipment
+item_type: 0
+name: Rusty Steel Plate Collar
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 64
+weight: 0.10000000149011612

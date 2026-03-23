@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 253515
+damage: 6
+delay: 34
+hid: copper_scimitar
+icon_id: scimitar_sword_weapon:C86508:C86508:FFFFFF:1:1:1:1
+item_type: 0
+name: Copper Scimitar
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 3
+weight: 7.0

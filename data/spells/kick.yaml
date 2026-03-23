@@ -1,0 +1,28 @@
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: int
+cast_time: 0.0
+cast_while_moving: 1
+category_hid: hrm
+cooldown: 10.0
+cooldown_hid: kick
+description: Swiftly kick your target, interrupting their casting and preventing them
+  from casting spells from the same school of magic for 4 seconds.
+global_cooldown: 2.0
+global_cooldown_hid: nil
+hid: kick
+icon_hid: kick
+level: 3
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+must_face_target: 1
+name: Kick
+no_interrupt: 1
+primary_skill_hid: nul
+range: 3.0
+resist_element_hid: nul
+school_hid: acr
+target_hid: otr
+type_hid: nrm

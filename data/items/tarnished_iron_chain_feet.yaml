@@ -1,0 +1,14 @@
+ac: 11
+class_mask: 81478
+damage: 0
+delay: 0
+hid: tarnished_iron_chain_feet
+icon_id: boots_chain_equipment
+item_type: 0
+name: Tarnished Iron Chain Boots
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 2.0

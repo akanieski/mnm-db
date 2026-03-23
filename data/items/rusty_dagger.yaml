@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 261491
+damage: 3
+delay: 24
+hid: rusty_dagger
+icon_id: dagger1_weapon
+item_type: 0
+name: Rusty Dagger
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 3.0

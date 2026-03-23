@@ -1,0 +1,17 @@
+ac: 11
+class_mask: 130767
+damage: 0
+delay: 0
+hid: desert_nomad_treadwraps
+icon_id: boots_leather2_equipment
+item_type: 0
+magic: 1
+name: Desert Nomad Treadwraps
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+stamina: 1
+weight: 0.5
+wisdom: 2

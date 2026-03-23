@@ -1,0 +1,19 @@
+ac: 19
+class_mask: 70212
+damage: 0
+delay: 0
+description: Vambraces forged in the heart of orcish strongholds,bearing the scars
+  of a thousand battles.
+dexterity: 3
+hid: ip_btb_orc_rare_27_supplier_uncommon_plate_wrists_27
+icon_id: bracer_steel1_equipment
+item_type: 0
+magic: 1
+name: Battleforged Vambraces
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 6144
+strength: 4
+weight: 2.0

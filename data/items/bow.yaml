@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 122433
+damage: 9
+delay: 43
+description: A ranged weapon used to shoot arrows.
+hid: bow
+icon_id: bow_wood_weapon
+item_type: 0
+name: Bow
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+weight: 3.0

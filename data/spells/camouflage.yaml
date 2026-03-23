@@ -1,0 +1,33 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 5.0
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: camouflage
+description: 'Camouflage a target group member in nature''s shroud, rendering them
+  unseen by the living for 10 minutes.
+
+  This spell can only be used outdoors.
+
+  This spell has a slight chance to end early.
+
+  This spell is removed by damage.'
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: camouflage
+icon_hid: eyeblue
+level: 15
+los_requirement: 2
+mana_cost: 20
+max_target_level: -1
+min_target_level: -1
+name: Camouflage
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: div
+target_hid: grp
+type_hid: nrm

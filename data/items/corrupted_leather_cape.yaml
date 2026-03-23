@@ -1,0 +1,12 @@
+ac: 4
+agility: 4
+damage: 0
+delay: 0
+health: 10
+hid: corrupted_leather_cape
+item_type: 0
+name: Corrupted Leather Cloak
+required_level: 0
+resist_corrupt: -5
+slot_mask: 131072
+weight: 0.25

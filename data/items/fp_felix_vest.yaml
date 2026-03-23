@@ -1,0 +1,17 @@
+ac: 31
+agility: 6
+class_mask: 130767
+damage: 0
+delay: 0
+dexterity: 4
+health: 10
+hid: fp_felix_vest
+item_type: 0
+magic: 1
+name: Supple Rat Skin Tunic
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 65536
+weight: 3.0

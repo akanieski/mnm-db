@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 120384
+damage: 7
+delay: 42
+hid: rusty_bronze_axe
+icon_id: axe_weapon:71622F:292422:958132:1:1:1:1
+item_type: 0
+name: Corroded Bronze Axe
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: sla
+slot_mask: 3
+weight: 6.0

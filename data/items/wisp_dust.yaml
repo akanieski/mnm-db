@@ -1,0 +1,13 @@
+ac: 0
+damage: 0
+delay: 0
+description: A faintly glowing residue.
+hid: wisp_dust
+icon_id: magic_dust_0:4EF4F3:4EF4F3:4EF4F3:1.364:3.557:0.127:1
+item_type: 0
+name: Wisp Dust
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.5

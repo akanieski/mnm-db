@@ -1,0 +1,21 @@
+ac: 0
+agility: 1
+class_mask: 8
+damage: 0
+delay: 0
+description: An advanced druidic icon fashioned from twisted vines in the shape of
+  a crescent moon.
+hid: druid_icon_gatekeeper
+icon_id: scythe1_weapon:1F8911:074B13:2DE726:1.426:1:1.163:1
+item_type: 0
+magic: 1
+mana: 10
+name: Icon of the Gatekeeper
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 7
+weight: 2.0
+wisdom: 4

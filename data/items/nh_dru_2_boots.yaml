@@ -1,0 +1,20 @@
+ac: 6
+class_mask: 130767
+damage: 0
+delay: 0
+description: A pair of finely made leather boots stitched by a follower of Krivea.
+  They were given to you for your service to the Circle of Scarce Rains.
+hid: nh_dru_2_boots
+icon_id: boots_leather2_equipment
+item_type: 0
+magic: 1
+mana: 5
+name: Halfling-Made Boots
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 1048576
+weight: 0.5
+wisdom: 3

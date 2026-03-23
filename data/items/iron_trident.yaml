@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 113731
+damage: 8
+delay: 30
+hid: iron_trident
+icon_id: spear
+item_type: 0
+name: Iron Trident
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sta
+slot_mask: 3
+weight: 7.0

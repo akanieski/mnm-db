@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 262143
+damage: 0
+delay: 0
+description: The eye of a cinder beetle.
+hid: cinder_beetle_eye
+icon_id: firebeetleeye
+item_type: 10
+name: Cinder Beetle Eye
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 29360135
+weight: 0.30000001192092896

@@ -1,0 +1,12 @@
+ac: 0
+damage: 9
+delay: 39
+health: 10
+hid: krindor_hunting_bow
+item_type: 0
+name: Krindor's Hunting Bow
+required_level: 0
+resist_disease: -3
+slot_mask: 4
+weight: 3.0
+wisdom: 1

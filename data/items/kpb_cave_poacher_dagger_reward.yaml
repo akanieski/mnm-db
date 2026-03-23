@@ -1,0 +1,22 @@
+ac: 0
+agility: 4
+class_mask: 261491
+damage: 7
+delay: 21
+description: A sharp blade reforged in cold vengeance.
+dexterity: 4
+health: 20
+hid: kpb_cave_poacher_dagger_reward
+icon_id: dagger1_weapon:CEF5DA:44BA36:262626:1:1:1:1
+item_type: 0
+magic: 1
+melee_haste: 12
+name: Debtcarver
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 4
+weight: 3.0

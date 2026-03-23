@@ -1,0 +1,20 @@
+ac: 0
+agility: 1
+class_mask: 122433
+damage: 11
+delay: 39
+description: A ranged weapon used to shoot arrows.
+dexterity: 2
+health: 5
+hid: dario_bow
+icon_id: bow_wood_weapon
+item_type: 0
+magic: 1
+mana: 5
+name: Bow of the Fallen Ranger
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: arc
+slot_mask: 4
+weight: 3.0

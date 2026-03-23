@@ -1,0 +1,9 @@
+ac: 19
+damage: 0
+delay: 0
+hid: iron_plate_feet
+item_type: 0
+name: Iron Plate Boots
+required_level: 0
+slot_mask: 1048576
+weight: 3.0

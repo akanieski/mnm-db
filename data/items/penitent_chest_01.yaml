@@ -1,0 +1,11 @@
+ac: 5
+damage: 0
+delay: 0
+health: 3
+hid: penitent_chest_01
+item_type: 0
+name: Simple Penitent Knight's Tunic
+required_level: 0
+slot_mask: 65536
+stamina: 1
+weight: 4.0

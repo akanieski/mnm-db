@@ -1,0 +1,16 @@
+ac: 2
+class_mask: 262143
+damage: 0
+delay: 0
+health: 25
+hid: inlaid_jade_gold_earring
+icon_id: earring_metal_gold_equipment:FFD700:2E8074:FFD700:3.5:0:0.54:1.2
+item_type: 0
+mana: 25
+name: Inlaid Jade Gold Earring
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 48
+weight: 0.10000000149011612

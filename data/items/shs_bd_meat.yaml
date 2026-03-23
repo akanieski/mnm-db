@@ -1,0 +1,17 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+description: 'This is a modest meal.
+
+  A loaf of various ground meats prepared by the Benu Dhai. '
+hid: shs_bd_meat
+icon_id: steak_cooked_food
+item_type: 6
+name: Lunar Festival Meatloaf
+race_mask: 0
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 1.100000023841858

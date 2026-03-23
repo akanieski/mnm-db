@@ -1,0 +1,14 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+hid: light_thread
+icon_id: yarn
+item_type: 0
+name: Light Thread
+race_mask: 0
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

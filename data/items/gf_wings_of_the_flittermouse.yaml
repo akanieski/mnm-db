@@ -1,0 +1,22 @@
+ac: 23
+brass_mod: 5
+class_mask: 130767
+damage: 0
+delay: 0
+dexterity: 1
+hid: gf_wings_of_the_flittermouse
+item_type: 0
+magic: 1
+name: Wings of the Flittermouse
+percussion_mod: 5
+race_mask: 4095
+required_level: 0
+singing_mod: 5
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 32768
+stamina: 1
+strength: 5
+string_mod: 5
+weight: 0.5
+wind_mod: 5

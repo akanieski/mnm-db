@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 102976
+damage: 19
+delay: 52
+hid: steel_2axe
+icon_id: axe_2h_weapon
+item_type: 0
+name: Steel Battle Axe
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 13.0

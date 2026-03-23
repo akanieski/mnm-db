@@ -1,0 +1,22 @@
+ac: 11
+charisma: 3
+class_mask: 2
+damage: 0
+delay: 0
+description: A golden bangle with brilliant azure enameled details.
+dexterity: 3
+health: 10
+hid: brd_nwb_fore
+icon_id: bracer
+intelligence: 3
+item_type: 0
+magic: 1
+mana: 10
+name: Azure Enameled Golden Bangle
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 6144
+weight: 1.399999976158142

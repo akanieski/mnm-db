@@ -1,0 +1,19 @@
+ac: 0
+class_mask: 71984
+damage: 7
+delay: 21
+description: A wide-bladed dagger, blackened and pitted, its edge slick with pestilence.
+  Relics such as this must be handled with care, lest one fall to the plagues long
+  forgotten.
+hid: fp_morthkara_primary
+icon_id: dagger1_weapon:1BBC24:130202:331111:0.56:0.66:1.93:1.05
+item_type: 0
+magic: 1
+name: Withermaker
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 5
+weight: 4.0

@@ -1,0 +1,25 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 1
+book_type_hid: spl
+can_fizzle: 1
+cast_time: 5.0
+category_hid: ben
+cooldown: 0.0
+cooldown_hid: gate
+description: Magically align yourself, orienting you toward the North Pole.
+global_cooldown: 2.0
+global_cooldown_hid: spl
+hid: polaralign_north
+icon_hid: wind
+level: 1
+mana_cost: 5
+max_target_level: -1
+min_target_level: -1
+name: 'Polar Alignment: North'
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: div
+target_hid: slf
+type_hid: nrm

@@ -1,0 +1,12 @@
+ac: 0
+damage: 0
+delay: 0
+hid: raw_ogr_meat
+icon_id: steak_uncooked_food
+item_type: 0
+name: Raw Ogre Meat
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.75

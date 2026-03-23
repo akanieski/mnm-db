@@ -1,0 +1,17 @@
+ac: 6
+agility: 4
+class_mask: 130767
+damage: 0
+delay: 0
+dexterity: 2
+hid: shimmering_shadow_veil
+icon_id: mask_bone_equipment
+item_type: 0
+magic: 1
+name: Shimmering Shadow Veil
+race_mask: 4095
+required_level: 0
+size_hid: md
+skill_weapon_hid: nul
+slot_mask: 128
+weight: 0.25

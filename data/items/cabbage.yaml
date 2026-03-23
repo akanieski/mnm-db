@@ -1,0 +1,12 @@
+ac: 0
+damage: 0
+delay: 0
+hid: cabbage
+icon_id: cabbage_food
+item_type: 0
+name: Cabbage
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.25

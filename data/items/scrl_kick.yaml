@@ -1,0 +1,16 @@
+ac: 0
+class_mask: 120384
+damage: 0
+delay: 0
+description: Swiftly kick your target, interrupting their casting and preventing them
+  from casting spells from the same school of magic for 4 seconds.
+hid: scrl_kick
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Kick'
+race_mask: 4095
+required_level: 3
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

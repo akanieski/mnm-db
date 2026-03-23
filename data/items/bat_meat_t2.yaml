@@ -1,0 +1,15 @@
+ac: 0
+class_mask: 0
+damage: 0
+delay: 0
+description: A stringy piece of meat from a bat.
+hid: bat_meat_t2
+icon_id: steak_uncooked_food
+item_type: 0
+name: Raw Bat Fillet
+race_mask: 0
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 2.0

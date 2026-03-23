@@ -1,0 +1,19 @@
+ac: 10
+agility: 6
+class_mask: 130766
+damage: 12
+delay: 30
+hid: gf_fgk_named_tracker_mace
+icon_id: bone_femur_bodypart:29632B:29632B:29632B:0.89:0.48:1.19:1
+item_type: 0
+magic: 1
+name: Savage Club
+race_mask: 4095
+required_level: 0
+resist_disease: 3
+size_hid: md
+skill_weapon_hid: blg
+slot_mask: 3
+stamina: 3
+strength: 6
+weight: 4.800000190734863

@@ -1,0 +1,20 @@
+ac: 30
+class_mask: 70212
+damage: 0
+delay: 0
+description: Crafted under the watchful eye of Orbilis, its dark metal seems to absorb
+  the light around it.
+hid: ip_btb_evil_eye_rare_rare_plate_legs_25
+icon_id: legs_steel_equipment
+item_type: 0
+magic: 1
+mana: 10
+name: Black Greaves of the Eye
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+stamina: 2
+weight: 3.0
+wisdom: 5

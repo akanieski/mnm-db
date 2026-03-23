@@ -1,0 +1,19 @@
+ac: 0
+agility: 1
+class_mask: 261491
+damage: 5
+delay: 21
+dexterity: 3
+health: 5
+hid: the_mangler
+icon_id: dagger1_weapon
+item_type: 0
+magic: 1
+name: The Mangler
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: sta
+slot_mask: 3
+strength: 3
+weight: 2.0

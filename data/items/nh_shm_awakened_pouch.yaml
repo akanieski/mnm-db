@@ -1,0 +1,20 @@
+ac: 0
+class_mask: 8192
+damage: 0
+delay: 0
+description: A shaman's spirit pouch. Its leather has fully awakened to its true potential,
+  just like you have.
+hid: nh_shm_awakened_pouch
+icon_id: necklace_metal_goldruby_equipment
+item_type: 6
+magic: 1
+name: Awakened Spirit Pouch
+no_drop: 1
+race_mask: 4095
+required_level: 0
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 64
+strength: 3
+weight: 0.10000000149011612
+wisdom: 3

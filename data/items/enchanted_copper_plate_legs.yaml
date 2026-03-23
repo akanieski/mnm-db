@@ -1,0 +1,18 @@
+ac: 19
+class_mask: 70212
+damage: 0
+delay: 0
+health: 5
+hid: enchanted_copper_plate_legs
+icon_id: legs_steel_equipment:953D21:953D21:9F4528:1:1:1.17:1
+item_type: 0
+magic: 1
+name: Enchanted Copper Plate Greaves
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: nul
+slot_mask: 524288
+stamina: 2
+weight: 3.0
+wisdom: 2

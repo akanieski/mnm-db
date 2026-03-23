@@ -1,0 +1,27 @@
+animation: cast
+area_effect_hid: tar
+area_effect_target_cap: 4
+book_type_hid: skl
+cast_time: 0.0
+cast_while_moving: 1
+category_hid: ben
+cooldown: 10.0
+cooldown_hid: tracking
+description: Survey your surroundings, attempting to detect the presence of nearby
+  targets.
+global_cooldown: 0.0
+global_cooldown_hid: nil
+hid: tracking
+icon_hid: speed
+level: -1
+los_requirement: 1
+mana_cost: 0
+max_target_level: -1
+min_target_level: -1
+name: Tracking
+primary_skill_hid: nul
+range: 30.0
+resist_element_hid: nul
+school_hid: trc
+target_hid: slf
+type_hid: nrm

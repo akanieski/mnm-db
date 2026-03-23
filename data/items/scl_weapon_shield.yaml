@@ -1,0 +1,18 @@
+ac: 0
+class_mask: 4672
+damage: 0
+delay: 0
+description: 'Shield yourself with a weapon, reducing your Physical Damage received
+  by 5%.
+
+  This ability persists until canceled.'
+hid: scl_weapon_shield
+icon_id: scroll
+item_type: 12
+name: 'Scroll: Weapon Shield'
+race_mask: 4095
+required_level: 4294967295
+size_hid: sm
+skill_weapon_hid: nul
+slot_mask: 0
+weight: 0.10000000149011612

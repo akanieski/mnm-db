@@ -1,0 +1,19 @@
+ac: 0
+class_mask: 70144
+damage: 20
+delay: 46
+description: The noble greatsword of Lady Thrym. Its blade, said to be forged by a
+  magical force from the light of Eth-es, slides through armor, leaving only silence
+  and nightfall in its wake.
+hid: fp_thrym_pri2h
+icon_id: sword2_weapon:5C83D1:14439C:5E616C:0.979:1:1.598:1
+item_type: 0
+magic: 1
+name: Soulbrand
+race_mask: 4095
+required_level: 0
+size_hid: lg
+skill_weapon_hid: sla
+slot_mask: 1
+two_handed: 1
+weight: 10.0

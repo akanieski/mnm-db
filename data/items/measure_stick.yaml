@@ -1,0 +1,29 @@
+ac: 0
+agility: 3
+charisma: 7
+class_mask: 262143
+damage: 10
+delay: 37
+description: A worn yellow stick with uniformly spaced line markings, identical in
+  length.
+dexterity: 4
+health: 8
+hid: measure_stick
+icon_id: club_wooden4_weapon:B78D1B:EEB137:B28724:1.517:1:1:1
+intelligence: 5
+item_type: 6
+magic: 1
+mana: 9
+name: The Measure Stick
+no_drop: 1
+race_mask: 4095
+required_level: 0
+resist_magic: 10
+size_hid: md
+skill_weapon_hid: blg
+slot_mask: 1
+stamina: 2
+strength: 1
+two_handed: 1
+weight: 7.5
+wisdom: 6
