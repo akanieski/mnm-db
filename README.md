@@ -46,6 +46,12 @@ Item and spell data lives in plain YAML files under `data/`. This makes it easy 
 
 ---
 
+## License
+
+[MIT](LICENSE) — free to use, fork, and contribute. We'd ask that you not run a competing public copy out of respect for the community, but that's up to you.
+
+---
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or correct item and spell data.
