@@ -15,7 +15,7 @@ const IS_PROD = process.env.NODE_ENV === 'production'
 const PORT = Number(process.env.PORT) || 5173
 
 const devHtmlLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
+  windowMs: 5 * 60 * 1000, // 5 minutes
   max: 100, // limit each IP to 100 dev HTML requests per windowMs
 })
 const DIST = path.join(__dirname, 'dist')
