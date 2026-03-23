@@ -6,12 +6,18 @@ import { fileURLToPath } from 'url'
 import { load as yamlLoad } from 'js-yaml'
 import chokidar from 'chokidar'
 import type { ViteDevServer } from 'vite'
+import rateLimit from 'express-rate-limit'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ITEMS_DIR  = path.join(__dirname, 'data', 'items')
 const SPELLS_DIR = path.join(__dirname, 'data', 'spells')
 const IS_PROD = process.env.NODE_ENV === 'production'
 const PORT = Number(process.env.PORT) || 5173
+
+const devHtmlLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minutes
+  max: 100, // limit each IP to 100 dev HTML requests per windowMs
+})
 const DIST = path.join(__dirname, 'dist')
 
 const app = express()
@@ -375,7 +381,7 @@ if (IS_PROD) {
   })
 } else {
   // Dev: serve all other routes through Vite's HTML transform
-  app.use(async (req, res, next) => {
+  app.use(devHtmlLimiter, async (req, res, next) => {
     try {
       let html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8')
       html = await vite!.transformIndexHtml(req.url, html)
