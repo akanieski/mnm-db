@@ -131,13 +131,24 @@ app.get('/api/items/:hid', (req, res) => {
     return
   }
 
+  // If this is a scroll item, find the linked spell by name
+  let linked_spell: Record<string, unknown> | null = null
+  const itemName = (stats?.name ?? hid) as string
+  if (itemName.startsWith('Scroll: ')) {
+    const spellName = itemName.slice(8)
+    try {
+      linked_spell = db.prepare(`SELECT * FROM spell_stats WHERE name = ? LIMIT 1`).get(spellName) as Record<string, unknown> | null ?? null
+    } catch {}
+  }
+
   const item = {
     hid,
-    name: stats?.name ?? hid,
+    name: itemName,
     has_stats: !!stats,
     slots: slotsFromMask(Number(stats?.slot_mask) || 0),
     ...(stats || {}),
     icon_data: icon,
+    linked_spell,
   }
 
   res.json(item)
@@ -194,7 +205,17 @@ app.get('/api/spells/:hid', (req, res) => {
   try {
     const spell = db.prepare(`SELECT * FROM spell_stats WHERE hid = ?`).get(req.params.hid) as Record<string, unknown> | undefined
     if (!spell) { res.status(404).json({ error: 'Not found' }); return }
-    res.json(spell)
+
+    // Find any scroll items for this spell by name
+    let linked_scrolls: Record<string, unknown>[] = []
+    try {
+      const scrollName = `Scroll: ${spell.name as string}`
+      linked_scrolls = db.prepare(
+        `SELECT hid, name, icon_id, required_level FROM item_stats WHERE name = ? LIMIT 10`
+      ).all(scrollName) as Record<string, unknown>[]
+    } catch {}
+
+    res.json({ ...spell, linked_scrolls })
   } catch {
     res.status(404).json({ error: 'Not found' })
   }

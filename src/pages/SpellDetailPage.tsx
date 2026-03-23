@@ -70,7 +70,7 @@ function schoolLabel(spell: SpellSummary): string | null {
 
 function castTimeLabel(ct: number | null): string {
   if (ct == null || ct === 0) return 'Instant'
-  return `${ct}s`
+  return `${ct.toFixed(2)}s`
 }
 
 export default function SpellDetailPage() {
@@ -230,6 +230,28 @@ export default function SpellDetailPage() {
             <EQDivider />
             <Section>
               <InfoLine label="Source" value={bookType} />
+            </Section>
+          </>
+        )}
+
+        {/* ── Linked Scrolls ── */}
+        {spell.linked_scrolls && spell.linked_scrolls.length > 0 && (
+          <>
+            <EQDivider />
+            <Section>
+              <div style={{ color: C.label, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>Available as Scroll</div>
+              {spell.linked_scrolls.map(scroll => (
+                <Link key={scroll.hid} to={`/items/${scroll.hid}`} style={{ textDecoration: 'none' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 0.6rem', background: '#1a1508', border: `1px solid ${C.border}`, borderRadius: '3px', cursor: 'pointer', marginBottom: '0.3rem' }}>
+                    <ItemIcon hid={scroll.hid} iconId={scroll.icon_id} size={32} />
+                    <div>
+                      <div style={{ color: C.nameGold }}>{scroll.name}</div>
+                      {scroll.required_level ? <div style={{ color: C.label, fontSize: '0.75rem' }}>Req. Level {scroll.required_level}</div> : null}
+                    </div>
+                    <div style={{ marginLeft: 'auto', color: C.label, fontSize: '0.8rem' }}>→</div>
+                  </div>
+                </Link>
+              ))}
             </Section>
           </>
         )}

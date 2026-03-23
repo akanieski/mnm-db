@@ -57,6 +57,7 @@ export interface ItemDetail extends ItemSummary {
   size_hid: string | null
   description: string | null
   scanned_at: string | null
+  linked_spell?: SpellSummary | null
 }
 
 export type FilterType = 'all' | 'stats' | 'weapon' | 'armor'
@@ -89,4 +90,5 @@ export interface SpellSummary {
   primary_skill_hid: string | null
   school_name: string | null
   scanned_at: string | null
+  linked_scrolls?: { hid: string; name: string; icon_id: string | null; required_level: number | null }[]
 }

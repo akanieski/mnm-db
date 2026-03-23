@@ -321,6 +321,30 @@ export default function ItemDetailPage() {
               <InfoLine label="Class" value={decodeClasses(item.class_mask)} />
               <InfoLine label="Race"  value={decodeRaces(item.race_mask)} />
             </Section>
+
+            {/* ── Linked Spell ── */}
+            {item.linked_spell && (
+              <>
+                <EQDivider />
+                <Section>
+                  <div style={{ color: C.label, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.3rem' }}>Teaches Spell</div>
+                  <Link to={`/spells/${item.linked_spell.hid}`} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 0.6rem', background: '#1a1508', border: `1px solid ${C.border}`, borderRadius: '3px', cursor: 'pointer' }}>
+                      <ItemIcon hid={item.linked_spell.hid} iconId={item.linked_spell.icon_hid ?? null} size={32} />
+                      <div>
+                        <div style={{ color: C.nameGold, fontWeight: 'bold' }}>{item.linked_spell.name}</div>
+                        <div style={{ color: C.label, fontSize: '0.75rem' }}>
+                          {item.linked_spell.school_hid && item.linked_spell.school_hid !== 'nul' ? item.linked_spell.school_hid.toUpperCase() : ''}
+                          {item.linked_spell.mana_cost ? `  ·  ${item.linked_spell.mana_cost} mana` : ''}
+                          {item.linked_spell.cast_time != null ? `  ·  ${item.linked_spell.cast_time === 0 ? 'Instant' : `${(item.linked_spell.cast_time as number).toFixed(2)}s cast`}` : ''}
+                        </div>
+                      </div>
+                      <div style={{ marginLeft: 'auto', color: C.label, fontSize: '0.8rem' }}>→</div>
+                    </div>
+                  </Link>
+                </Section>
+              </>
+            )}
           </>
         )}
       </div>
