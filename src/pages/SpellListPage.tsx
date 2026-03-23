@@ -193,8 +193,12 @@ export default function SpellListPage() {
                 href="https://github.com/akanieski/mnm-db/blob/master/CONTRIBUTING.md"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-muted-foreground/50 hover:text-muted-foreground underline underline-offset-2 transition-colors"
+                className="inline-flex items-center gap-1 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
               >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                </span>
                 Contribute
               </a>
             </p>
