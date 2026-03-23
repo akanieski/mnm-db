@@ -89,7 +89,7 @@ function SpellRow({ spell }: { spell: SpellSummary }) {
         )}
         {spell.cast_time != null && (
           <span className="text-xs text-muted-foreground font-mono w-12 text-right">
-            {spell.cast_time === 0 ? 'instant' : `${spell.cast_time}s`}
+            {spell.cast_time === 0 ? 'instant' : `${spell.cast_time.toFixed(2)}s`}
           </span>
         )}
         {spell.level != null && spell.level > 0 && (
@@ -134,9 +134,9 @@ export default function SpellListPage() {
     try {
       const params: Record<string, string> = {}
       if (dq)       params.q        = dq
-      if (bookType) params.bookType = bookType
-      if (school)   params.school   = school
-      if (category) params.skill    = category
+      if (bookType) params.bookType  = bookType
+      if (school)   params.school    = school
+      if (category) params.category  = category
       const data = await fetchSpells(params)
       setSpells(data.spells)
       setTotal(data.total)
@@ -162,11 +162,7 @@ export default function SpellListPage() {
     return Array.from(seen.entries()).sort((a, b) => a[1].localeCompare(b[1]))
   }, [spells])
 
-  const displaySpells = useMemo(() => {
-    let list = spells
-    if (category) list = list.filter(s => s.category_hid === category)
-    return list
-  }, [spells, category])
+  const displaySpells = spells
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
