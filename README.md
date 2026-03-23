@@ -2,7 +2,7 @@
 
 A community-built reference site for [Monsters & Memories](https://www.monstersandmemories.com/), the classic-style MMORPG. Browse weapons, armor, gear, and spells with full stats captured from the live game.
 
-🌐 **Live site:** https://mnm-db.onrender.com
+🌐 **Live site:** https://mnmdb.online
 
 ---
 
