@@ -92,7 +92,7 @@ function buildItemDescription(item: ItemDetail): string {
     item.two_handed ? 'TWO-HANDED' : null,
   ].filter(Boolean) as string[]
   if (flags.length) parts.push(flags.join(', '))
-  if (item.slots.length) parts.push(`Slot: ${item.slots.map(s => s.toUpperCase()).join(' ')}`)
+  if (item.slots.length) parts.push(`Slot: ${[...new Set(item.slots)].map(s => s.toUpperCase()).join(' ')}`)
   if (item.damage || item.delay) {
     const ratio = item.damage && item.delay ? ` (${(item.damage / item.delay).toFixed(2)})` : ''
     parts.push(`Weapon DMG: ${item.damage ?? 0}  ATK Delay: ${item.delay ?? 0}${ratio}`)
@@ -253,7 +253,7 @@ export default function ItemDetailPage() {
             {/* ── Core stats ── */}
             <Section>
               {item.slots.length > 0 && (
-                <InfoLine label="Slot" value={item.slots.map(s => s.toUpperCase()).join(' ')} />
+                <InfoLine label="Slot" value={[...new Set(item.slots)].map(s => s.toUpperCase()).join(' ')} />
               )}
               {!!(item.damage || item.delay) && (
                 <div>
