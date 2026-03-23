@@ -194,6 +194,12 @@ export default function SpellListPage() {
           <ThemeToggle />
         </div>
 
+        {/* Notice banner */}
+        <div className="mb-4 flex items-start gap-2.5 rounded-md border border-amber-600/30 bg-amber-600/10 px-3.5 py-2.5 text-sm text-amber-400">
+          <span className="mt-0.5 shrink-0">⚠</span>
+          <span>Ability details are not fully available at this time. Spell data shown here reflects only abilities observed for characters who have logged in — the complete spell database is not yet captured.</span>
+        </div>
+
         {/* Search + Filters */}
         <div className="flex flex-col gap-2 mb-4">
           <div className="relative flex-1">
