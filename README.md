@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Monsters & Memories — Community Item & Spell Database
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A community-built reference site for [Monsters & Memories](https://www.monstersandmemories.com/), the classic-style MMORPG. Browse weapons, armor, gear, and spells with full stats captured from the live game.
 
-Currently, two official plugins are available:
+🌐 **Live site:** https://mnm-db.onrender.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What's in here?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Items** — 1,400+ weapons, armor, jewelry, and other gear with full stat sheets
+- **Spells** — Spellbook entries with descriptions, mana cost, cast time, school, and more
+- **Search & Filter** — Filter by name, item type, slot, weapon skill, class, race, stats, and more
+- **Item detail pages** — Full stat breakdown with class/race restrictions, slot info, and linked scrolls
+- **Spell detail pages** — Full ability description with school, book type, level, and linked scroll items
 
-## Expanding the ESLint configuration
+Data is community-sourced and updated as players explore the game world. Some items and spells may be missing or incomplete — see [CONTRIBUTING.md](CONTRIBUTING.md) if you'd like to help fill in gaps.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Running locally
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The dev server starts at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
+
 ```
+web/
+├── data/
+│   ├── items/      # One YAML file per item (keyed by HID)
+│   └── spells/     # One YAML file per spell (keyed by HID)
+├── src/
+│   ├── pages/      # React page components
+│   └── components/ # Shared UI components
+└── server.ts       # Express API + Vite dev server
+```
+
+Item and spell data lives in plain YAML files under `data/`. This makes it easy to review, correct, and contribute data via pull request.
+
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add or correct item and spell data.
